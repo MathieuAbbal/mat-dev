@@ -7,9 +7,9 @@ toggleBtn.onclick = () => {
 	collapse.classList.toggle("flex");
 };
 //affiche année en cour
-var today = new Date();
-var annee = today.getFullYear();
-var sannee = document.getElementById('s_annee');
+let today = new Date();
+let annee = today.getFullYear();
+let sannee = document.getElementById('s_annee');
 sannee.innerHTML = annee;
 
 //mode sombre
