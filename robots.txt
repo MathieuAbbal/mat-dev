@@ -1,0 +1,6 @@
+# Robots.txt for mathieuabbal.github.io/mat-dev
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mathieuabbal.github.io/mat-dev/sitemap.xml
