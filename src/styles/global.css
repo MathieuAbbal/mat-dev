@@ -1,10 +1,6 @@
-/*
- * Portfolio - Mathieu Abbal
- * Custom CSS (Tailwind is loaded via CDN)
- *
- * Note: This file replaces the previous 9.3MB Tailwind build.
- * Tailwind is now loaded via CDN with inline configuration.
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Base styles */
 html {

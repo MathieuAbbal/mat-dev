@@ -1,0 +1,127 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Primary Meta Tags -->
+    <title>Mathieu Abbal | Développeur Full Stack Angular & SIG | Pyrénées-Orientales</title>
+    <meta name="title" content="Mathieu Abbal | Développeur Full Stack Angular & SIG | Pyrénées-Orientales">
+    <meta name="description"
+        content="Développeur Full Stack avec 5 ans d'expérience chez Nanogis. Expert Angular, TypeScript, RxJS, MapLibre et Chart.js. Spécialisé en applications cartographiques SIG. Disponible en Pyrénées-Orientales et remote." />
+    <meta name="keywords"
+        content="développeur full stack, développeur angular, développeur web, SIG, cartographie, MapLibre, Chart.js, TypeScript, RxJS, LoopBack, MongoDB, Studio 3T, Perpignan, Pyrénées-Orientales, Nanogis, freelance, CDI">
+    <meta name="author" content="Mathieu Abbal">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="French">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mathieuabbal.github.io/mat-dev/">
+
+    <!-- Favicon -->
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg?v=2`} type="image/svg+xml">
+    <link rel="alternate icon" sizes="32x32" href={`${import.meta.env.BASE_URL}favicon-32x32.png`} type="image/png">
+    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}favicon-32x32.png`}>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/ce2a36e089.js" crossorigin="anonymous"></script>
+
+    <!-- Google Verification -->
+    <meta name="google-site-verification" content="Yd2sd7XddExlO5ua0eaYPW4ImcbXOC8FQCfW3ntANBw" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mathieuabbal.github.io/mat-dev/" />
+    <meta property="og:title" content="Mathieu Abbal | Développeur Full Stack Angular & SIG" />
+    <meta property="og:description"
+        content="Développeur Full Stack avec 5 ans d'expérience. Expert Angular, TypeScript, MapLibre, Chart.js. Spécialisé en applications cartographiques SIG chez Nanogis." />
+    <meta property="og:image" content="https://mathieuabbal.github.io/mat-dev/img/image_site.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mathieu Abbal - Développeur Full Stack" />
+    <meta property="og:site_name" content="Portfolio Mathieu Abbal" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="fb:app_id" content="361935935585848" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://mathieuabbal.github.io/mat-dev/" />
+    <meta name="twitter:site" content="@Mathieu_dev_" />
+    <meta name="twitter:creator" content="@Mathieu_dev_" />
+    <meta name="twitter:title" content="Mathieu Abbal | Développeur Full Stack Angular & SIG" />
+    <meta name="twitter:description"
+        content="Développeur Full Stack avec 5 ans d'expérience. Expert Angular, TypeScript, MapLibre, Chart.js. Spécialisé SIG chez Nanogis." />
+    <meta name="twitter:image" content="https://mathieuabbal.github.io/mat-dev/img/image_site.png" />
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-100 transition-colors duration-300">
+    <slot />
+
+    <!-- Structured Data - Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mathieu Abbal",
+        "givenName": "Mathieu",
+        "familyName": "Abbal",
+        "url": "https://mathieuabbal.github.io/mat-dev/",
+        "image": "https://mathieuabbal.github.io/mat-dev/img/profil.jpg",
+        "email": "mathieuabbal@hotmail.fr",
+        "telephone": "+33617593521",
+        "jobTitle": "Développeur Full Stack",
+        "description": "Développeur Full Stack spécialisé en Angular, TypeScript et applications cartographiques SIG",
+        "knowsAbout": ["Angular", "TypeScript", "RxJS", "MapLibre", "Chart.js", "LoopBack", "MongoDB", "JavaScript", "HTML", "CSS", "Node.js"],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Nanogis",
+            "description": "Logiciels cartographiques SIG"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Pyrénées-Orientales",
+            "addressCountry": "France"
+        },
+        "sameAs": [
+            "https://github.com/MathieuAbbal",
+            "https://www.linkedin.com/in/mathieu-abbal/",
+            "https://twitter.com/Mathieu_dev_"
+        ]
+    })} />
+
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Portfolio Mathieu Abbal",
+        "url": "https://mathieuabbal.github.io/mat-dev/",
+        "description": "Portfolio de Mathieu Abbal, Développeur Full Stack spécialisé Angular et SIG",
+        "author": {
+            "@type": "Person",
+            "name": "Mathieu Abbal"
+        }
+    })} />
+
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://mathieuabbal.github.io/mat-dev/" },
+            { "@type": "ListItem", "position": 2, "name": "Compétences", "item": "https://mathieuabbal.github.io/mat-dev/#skills" },
+            { "@type": "ListItem", "position": 3, "name": "Expérience", "item": "https://mathieuabbal.github.io/mat-dev/#experience" },
+            { "@type": "ListItem", "position": 4, "name": "Projets", "item": "https://mathieuabbal.github.io/mat-dev/#projects" },
+            { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://mathieuabbal.github.io/mat-dev/#contact" }
+        ]
+    })} />
+</body>
+</html>
