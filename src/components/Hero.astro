@@ -370,26 +370,25 @@ const base = import.meta.env.BASE_URL;
 
             modalMap.addControl(new (window as any).maplibregl.NavigationControl({ visualizePitch: true }), 'top-left');
 
+            // Persistent marker
+            const modalMarkerEl = document.createElement('div');
+            modalMarkerEl.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
+            const modalMarker = new (window as any).maplibregl.Marker({ element: modalMarkerEl })
+                .setLngLat([2.89, 42.7]);
+
             modalMap.on('load', () => {
                 modalMapReady = true;
-                const markerEl = document.createElement('div');
-                markerEl.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
-                new (window as any).maplibregl.Marker({ element: markerEl })
-                    .setLngLat([2.89, 42.7])
-                    .addTo(modalMap);
+                modalMarker.addTo(modalMap);
             });
 
             // Watch theme changes
             const obs = new MutationObserver(() => {
-                if (!modalMapReady) return;
+                if (!modalMapReady || !mapModal || mapModal.classList.contains('hidden')) return;
                 modalMapReady = false;
                 modalMap.setStyle(getMapStyle());
                 modalMap.once('style.load', () => {
                     modalMapReady = true;
                     if (is3D) addTerrain();
-                    const m = document.createElement('div');
-                    m.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
-                    new (window as any).maplibregl.Marker({ element: m }).setLngLat([2.89, 42.7]).addTo(modalMap);
                 });
             });
             obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
@@ -491,11 +490,6 @@ const base = import.meta.env.BASE_URL;
                 modalMap.once('style.load', () => {
                     modalMapReady = true;
                     if (is3D) addTerrain();
-                    const markerEl = document.createElement('div');
-                    markerEl.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
-                    new (window as any).maplibregl.Marker({ element: markerEl })
-                        .setLngLat([2.89, 42.7])
-                        .addTo(modalMap);
                 });
                 if (currentStyleName) currentStyleName.textContent = style.name;
             }
