@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!DOCTYPE html>
@@ -31,10 +32,13 @@ import '../styles/global.css';
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- View Transitions -->
+    <ClientRouter />
 
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/ce2a36e089.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/ce2a36e089.js" crossorigin="anonymous"></script>
 
     <!-- Google Verification -->
     <meta name="google-site-verification" content="Yd2sd7XddExlO5ua0eaYPW4ImcbXOC8FQCfW3ntANBw" />
@@ -64,8 +68,39 @@ import '../styles/global.css';
     <meta name="twitter:image" content="https://mathieuabbal.github.io/mat-dev/img/image_site.png" />
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-100 transition-colors duration-300">
+<body class="bg-[#f8fafc] dark:bg-[#030610] font-sans text-gray-800 dark:text-gray-100 transition-colors duration-300">
+    <!-- Background Halos -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <!-- Light mode halos -->
+        <div class="dark:hidden absolute -top-32 -left-32 w-[600px] h-[600px] bg-indigo-200/30 blur-[150px] rounded-full"></div>
+        <div class="dark:hidden absolute top-1/3 -right-32 w-[400px] h-[400px] bg-cyan-200/20 blur-[130px] rounded-full"></div>
+        <div class="dark:hidden absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-violet-200/15 blur-[140px] rounded-full"></div>
+        <!-- Dark mode halos -->
+        <div class="hidden dark:block absolute -top-32 -left-32 w-[600px] h-[600px] bg-[#4f46e5]/10 blur-[150px] rounded-full"></div>
+        <div class="hidden dark:block absolute top-1/3 -right-32 w-[400px] h-[400px] bg-[#06b6d4]/8 blur-[130px] rounded-full"></div>
+        <div class="hidden dark:block absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-[#7c3aed]/6 blur-[140px] rounded-full"></div>
+    </div>
     <slot />
+
+    <!-- Scroll Reveal Observer -->
+    <script>
+        function initReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.reveal, .stagger-children').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        initReveal();
+        document.addEventListener('astro:after-swap', initReveal);
+    </script>
 
     <!-- Structured Data - Person -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -93,7 +128,7 @@ import '../styles/global.css';
         },
         "sameAs": [
             "https://github.com/MathieuAbbal",
-            "https://www.linkedin.com/in/mathieu-abbal/",
+            "https://www.linkedin.com/in/mathieuabbal/",
             "https://twitter.com/Mathieu_dev_"
         ]
     })} />

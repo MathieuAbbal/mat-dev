@@ -1,20 +1,27 @@
-<section id="skills" class="py-16 bg-white dark:bg-gray-800">
+---
+import { SKILLS, OTHER_SKILLS } from "../constants/portfolio";
+---
+
+<section id="skills" class="py-12 sm:py-20 bg-white/60 dark:bg-white/[0.02] border-y border-indigo-100/40 dark:border-white/5">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl lg:text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            Compétences Techniques
-        </h2>
+        <div class="text-center mb-14 reveal">
+            <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-3">Stack technique</p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+                Compétences Techniques
+            </h2>
+        </div>
 
         <!-- Main Technologies -->
-        <div class="mb-12">
-            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-6 flex items-center">
-                <span class="w-8 h-0.5 bg-primary-600 mr-3"></span>
+        <div class="mb-14">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-slate-300 mb-8 flex items-center reveal">
+                <span class="w-10 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 mr-3 rounded-full"></span>
                 Technologies Principales
             </h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 stagger-children">
                 <!-- Angular -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 24 24" class="w-10 h-10">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-red-50 dark:bg-red-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8">
                             <defs>
                                 <linearGradient id="angularGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stop-color="#f44336" />
@@ -27,15 +34,15 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">Angular</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Framework</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[0].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[0].label}</div>
                     </div>
                 </div>
 
                 <!-- TypeScript -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 640 640" class="w-10 h-10">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-blue-50 dark:bg-blue-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 640 640" class="w-8 h-8">
                             <path fill="#3178C6"
                                 d="M135.3,100.3h370.4c18.9,0,34.3,15.4,34.3,34.3V505c0,18.9-15.4,34.3-34.3,34.3H135.3c-18.9,0-34.3-15.4-34.3-34.3V134.6C101,115.6,116.4,100.3,135.3,100.3z" />
                             <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd"
@@ -43,15 +50,15 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">TypeScript</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Langage</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[1].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[1].label}</div>
                     </div>
                 </div>
 
                 <!-- RxJS -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 283.5 283.5" class="w-10 h-10">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-pink-50 dark:bg-pink-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 283.5 283.5" class="w-8 h-8">
                             <defs>
                                 <linearGradient id="rxjs1" x1="53.5" x2="177.9" y1="247.7" y2="115.3" gradientUnits="userSpaceOnUse">
                                     <stop offset="0" stop-color="#E01D84" />
@@ -72,28 +79,28 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">RxJS</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Réactif</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[2].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[2].label}</div>
                     </div>
                 </div>
 
                 <!-- MapLibre -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 24 24" class="w-10 h-10" fill="#305daa">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-indigo-50 dark:bg-indigo-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8" fill="#305daa">
                             <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm0 3.19c2.937 0 5.371 2.265 5.371 5.035 0 4.111-4.364 7.635-5.035 8.138-.084 0-.084.084-.084.084-.084.084-.168.084-.168.084s-.168 0-.168-.084l-.084-.084c-.84-.503-5.203-3.943-5.203-8.138 0-2.77 2.434-5.036 5.371-5.036zm0 2.601c-1.427 0-2.602 1.173-2.602 2.684 0 1.51 1.175 2.685 2.602 2.685 1.427 0 2.602-1.175 2.602-2.685S13.427 5.79 12 5.79zM8.979 17.287h6.042a.66.66 0 0 1 .67.672v2.014a.66.66 0 0 1-.67.67H8.98a.66.66 0 0 1-.67-.67v-2.014a.66.66 0 0 1 .67-.672zm.755 1.258v.924h4.448v-.924H9.734z" />
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">MapLibre</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Cartographie</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[3].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[3].label}</div>
                     </div>
                 </div>
 
                 <!-- Chart.js -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 192 192" class="w-10 h-10">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-yellow-50 dark:bg-yellow-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 192 192" class="w-8 h-8">
                             <path fill="#36A2EB" d="M161.271,96.556c-22.368,0.439-17.709,14.599-33.473,18.18c-16.014,3.638-18.542-39.111-34.552-39.111c-16.012,0-19.559,41.526-39.608,70.034l-0.572,0.807l42.985,24.813l65.22-37.651V96.556z" />
                             <path fill="#FFCE56" d="M161.271,95.267c-7.488-9.61-12.567-20.658-23.494-20.658c-19.337,0-14.249,31.545-35.62,31.545c-21.373,0-23.62-33.931-47.832-2.035c-7.715,10.163-13.925,21.495-18.803,32.218l60.529,34.943l65.22-37.651V95.267z" />
                             <path opacity="0.8" fill="#FE6184" d="M30.829,108.334c7.338-20.321,10.505-36.779,24.514-36.779c21.371,0,26.458,60.039,44.779,53.931c18.318-6.105,16.282-38.669,44.779-38.669c5.424,0,10.962,3.323,16.371,8.698v38.113l-65.22,37.651l-65.222-37.651V108.334z" />
@@ -101,70 +108,63 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">Chart.js</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Visualisation</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[4].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[4].label}</div>
                     </div>
                 </div>
 
                 <!-- LoopBack -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 350 400.52" class="w-10 h-10">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-blue-50 dark:bg-blue-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 350 400.52" class="w-8 h-8">
                             <path fill="#3f5dff" d="M424,153a8,8,0,0,0-4-6.9L253,50.79a8,8,0,0,0-8,0l-166,97a8,8,0,0,0-4,6.95L76,347a8,8,0,0,0,4,6.9l167,95.27a8,8,0,0,0,8,0l166-97a8,8,0,0,0,4-6.95Zm-174.42-3.68,70.11,40,.22,70.36-27.63-15.76-.13-38.55-42.4-24.19-42.19,24.65.12,38.53-9.41,5.48-18.11,11.63L179.93,190ZM237.44,227l-19.85,11.57-.07-22.91ZM125,279.79V221.34L170,195l.1,31.88-17.45,10.2.14,26.78,23.26,13.26,106.2-62,.09,31.88L176.23,309Zm125.42,70.93L191,316.8,217.14,300l33.11,18.88,33.42-19.53,27.67,15.78Zm74-42.47-61.69-35.17L290.13,257l34.08,19.4,23.12-13.51-.14-26.78-17.46-10-.1-31.81L375,220.21v58.45Z" transform="translate(-75 -49.74)" />
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">LoopBack</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">API Backend</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[5].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[5].label}</div>
                     </div>
                 </div>
 
                 <!-- MongoDB -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 341 341" class="w-10 h-10">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-green-50 dark:bg-green-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 341 341" class="w-8 h-8">
                             <circle cx="170.5" cy="170.5" r="170.5" fill="#001e2b" />
                             <path fill="#00ed64" d="M193.21 70.47C182.39 57.7 173.08 44.65 171.18 42c-.04-.056-.092-.101-.153-.133a.404.404 0 0 0-.394 0 .415.415 0 0 0-.153.133c-1.89 2.68-11.2 15.73-22 28.5-92.71 118.05 14.61 197.72 14.61 197.72l.87.61c.82 12.32 2.84 30 2.84 30h8.07s2-16.64 2.83-29l.88-.69s107.32-79.59 14.63-197.67zM170.84 266.47s-4.81-4.1-6.11-6.16v-.22l5.82-128.56a.293.293 0 0 1 .505-.183.293.293 0 0 1 .085.183l5.84 128.58v.22c-1.3 2-6.11 6.16-6.11 6.16" />
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">MongoDB</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Base de données</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[6].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[6].label}</div>
                     </div>
                 </div>
 
                 <!-- Node.js -->
-                <div class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
-                        <svg viewBox="0 0 24 24" class="w-10 h-10" fill="#339933">
+                <div class="flex items-center p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl mr-4 bg-green-50 dark:bg-green-500/10 group-hover:scale-110 transition-transform duration-300">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8" fill="#339933">
                             <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z" />
                         </svg>
                     </div>
                     <div>
-                        <div class="font-semibold text-gray-900 dark:text-white">Node.js</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Runtime</div>
+                        <div class="font-semibold text-gray-900 dark:text-white">{SKILLS[7].name}</div>
+                        <div class="text-sm text-gray-500 dark:text-slate-400">{SKILLS[7].label}</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Other Skills -->
-        <div>
-            <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-6 flex items-center">
-                <span class="w-8 h-0.5 bg-primary-600 mr-3"></span>
+        <div class="reveal">
+            <h3 class="text-lg font-semibold text-gray-700 dark:text-slate-300 mb-6 flex items-center">
+                <span class="w-10 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 mr-3 rounded-full"></span>
                 Autres Compétences
             </h3>
             <div class="flex flex-wrap gap-3">
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">HTML5</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">CSS3</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">JavaScript</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">Tailwind CSS</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">Express.js</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">Git</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">GitHub</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">VS Code</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">Studio 3T</span>
-                <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium">ClickUp</span>
+                {OTHER_SKILLS.map((skill) => (
+                    <span class="px-4 py-1.5 border border-indigo-300/30 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/5 text-indigo-600 dark:text-indigo-300 rounded-full text-xs font-medium hover:border-indigo-400/60 hover:bg-indigo-100 dark:hover:bg-indigo-500/10 hover:-translate-y-0.5 transition-all duration-200 cursor-default">{skill}</span>
+                ))}
             </div>
         </div>
     </div>

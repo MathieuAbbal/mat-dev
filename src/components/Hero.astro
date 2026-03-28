@@ -4,68 +4,69 @@ const yearsExp = new Date().getFullYear() - startYear;
 const base = import.meta.env.BASE_URL;
 ---
 
-<section id="about" class="py-16 lg:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="about" class="relative py-12 sm:py-20 lg:py-32 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-2/3 bg-indigo-500/5 dark:bg-indigo-500/10 blur-[120px] rounded-full"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:flex lg:items-center lg:gap-16">
             <!-- Profile Image & Contact -->
-            <div class="lg:w-1/3 mb-10 lg:mb-0">
+            <div class="lg:w-1/3 mb-10 lg:mb-0 reveal">
                 <div class="text-center lg:text-left">
-                    <img class="w-40 h-40 rounded-full mx-auto lg:mx-0 border-4 border-primary-100 dark:border-primary-900 shadow-lg object-cover"
+                    <img class="w-32 h-32 sm:w-44 sm:h-44 rounded-full mx-auto lg:mx-0 border-4 border-indigo-200 dark:border-indigo-500/30 shadow-xl shadow-indigo-500/20 object-cover"
                         src={`${base}img/profil.jpg`} alt="Mathieu Abbal" />
 
-                    <div class="mt-6 space-y-3">
-                        <div class="flex items-center justify-center lg:justify-start text-gray-600 dark:text-gray-400">
-                            <i class="fas fa-map-marker-alt w-5 text-primary-600"></i>
+                    <div class="mt-8 space-y-3">
+                        <div class="flex items-center justify-center lg:justify-start text-gray-500 dark:text-slate-400 group">
+                            <i class="fas fa-map-marker-alt w-5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform"></i>
                             <span class="ml-3">Pyrénées-Orientales, France</span>
                         </div>
-                        <div class="flex items-center justify-center lg:justify-start text-gray-600 dark:text-gray-400">
-                            <i class="fas fa-envelope w-5 text-primary-600"></i>
+                        <a href="mailto:mathieuabbal@hotmail.fr" class="flex items-center justify-center lg:justify-start text-gray-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group">
+                            <i class="fas fa-envelope w-5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform"></i>
                             <span class="ml-3">mathieuabbal@hotmail.fr</span>
-                        </div>
-                        <div class="flex items-center justify-center lg:justify-start text-gray-600 dark:text-gray-400">
-                            <i class="fas fa-phone w-5 text-primary-600"></i>
+                        </a>
+                        <a href="tel:+33617593521" class="flex items-center justify-center lg:justify-start text-gray-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group">
+                            <i class="fas fa-phone w-5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform"></i>
                             <span class="ml-3">06 17 59 35 21</span>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Social Links -->
-                    <div class="flex justify-center lg:justify-start gap-4 mt-6">
+                    <div class="flex justify-center lg:justify-start gap-3 mt-6">
                         <a href="https://github.com/MathieuAbbal" target="_blank"
-                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-primary-100 hover:text-primary-600 dark:hover:bg-primary-900 dark:hover:text-primary-400 transition-colors">
+                            class="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800/80 text-gray-500 dark:text-slate-400 hover:bg-indigo-600 hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-300">
                             <i class="fab fa-github text-lg"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/mathieu-abbal/" target="_blank"
-                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-primary-100 hover:text-primary-600 dark:hover:bg-primary-900 dark:hover:text-primary-400 transition-colors">
+                        <a href="https://www.linkedin.com/in/mathieuabbal/" target="_blank"
+                            class="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800/80 text-gray-500 dark:text-slate-400 hover:bg-indigo-600 hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-300">
                             <i class="fab fa-linkedin-in text-lg"></i>
                         </a>
                         <a href="https://twitter.com/Mathieu_dev_" target="_blank"
-                            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-primary-100 hover:text-primary-600 dark:hover:bg-primary-900 dark:hover:text-primary-400 transition-colors">
+                            class="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800/80 text-gray-500 dark:text-slate-400 hover:bg-indigo-600 hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-300">
                             <i class="fab fa-twitter text-lg"></i>
                         </a>
                     </div>
-
-
                 </div>
             </div>
 
             <!-- Introduction Text -->
             <div class="lg:w-2/3">
-                <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                    Mathieu 
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 reveal reveal-delay-1">
+                    Salut, je suis
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee] animated-gradient" id="hero-name">Mathieu</span>
                 </h1>
-                <p class="text-xl text-primary-600 dark:text-primary-400 font-semibold mb-6">
-                    Développeur Full Stack
+                <p class="text-lg sm:text-xl lg:text-2xl text-indigo-600 dark:text-indigo-400 font-semibold mb-6 reveal reveal-delay-2">
+                    Développeur Full Stack <span class="typing-cursor" id="typing-text"></span>
                 </p>
 
-                <div class="prose prose-lg dark:prose-invert max-w-none">
-                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                <div class="max-w-none reveal reveal-delay-3">
+                    <p class="text-gray-600 dark:text-slate-400 leading-relaxed mb-4 text-base sm:text-lg">
                         Développeur passionné spécialisé dans la conception d'applications web modernes et
                         performantes.
-                        Actuellement chez <strong>Nanogis</strong>, je développe des solutions cartographiques
+                        Actuellement chez <strong class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">Nanogis</strong>, je développe des solutions cartographiques
                         SIG
                         en utilisant Angular, TypeScript et des technologies de visualisation de données.
                     </p>
-                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p class="text-gray-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">
                         Mon expertise couvre le développement front-end avec Angular et RxJS, l'intégration de
                         librairies de cartographie comme MapLibre, la visualisation de données avec Chart.js,
                         ainsi que le développement back-end avec LoopBack et MongoDB.
@@ -73,21 +74,432 @@ const base = import.meta.env.BASE_URL;
                 </div>
 
                 <!-- Quick Stats -->
-                <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">{yearsExp}+</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Années d'expérience</div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-8 sm:mt-10 reveal reveal-delay-4">
+                    <div class="relative group p-3 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-gray-200 dark:border-slate-800/50 backdrop-blur-sm text-center glow-hover">
+                        <div class="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">{yearsExp}+</div>
+                        <div class="text-xs sm:text-sm text-gray-500 dark:text-slate-500 mt-1">Années d'exp.</div>
                     </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">Angular</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Framework principal</div>
+                    <div class="relative group p-3 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-gray-200 dark:border-slate-800/50 backdrop-blur-sm text-center glow-hover">
+                        <div class="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">Angular</div>
+                        <div class="text-xs sm:text-sm text-gray-500 dark:text-slate-500 mt-1">Framework</div>
                     </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">SIG</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Spécialisation</div>
+                    <div class="relative group p-3 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-gray-200 dark:border-slate-800/50 backdrop-blur-sm text-center glow-hover">
+                        <div class="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">SIG</div>
+                        <div class="text-xs sm:text-sm text-gray-500 dark:text-slate-500 mt-1">Spécialisation</div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Block + Map -->
+        <div class="mt-8 sm:mt-16 grid md:grid-cols-2 gap-4 sm:gap-6 reveal">
+            <!-- Code Block -->
+            <div class="relative rounded-2xl bg-[#1e1e2e] dark:bg-[#0c0c1a] border border-gray-700/50 dark:border-slate-700/30 overflow-hidden shadow-2xl shadow-indigo-500/5">
+                <!-- Title bar -->
+                <div class="flex items-center px-4 py-2.5 bg-[#2b2b3c] dark:bg-[#111119] border-b border-gray-700/30">
+                    <span class="text-xs text-gray-400 font-mono">mathieu.ts</span>
+                </div>
+                <!-- Code content -->
+                <div class="p-4 sm:p-5 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+                    <div>
+                        <span class="text-[#cba6f7]">const</span> <span class="text-[#89b4fa]">mathieu</span> <span class="text-[#89dceb]">=</span> <span class="text-[#f9e2af]">&#123;</span>
+                    </div>
+                    <div class="ml-6">
+                        <span class="text-[#a6e3a1]">role</span><span class="text-[#6c7086]">:</span> <span class="text-[#f38ba8]">"Full Stack Developer"</span><span class="text-[#6c7086]">,</span>
+                    </div>
+                    <div class="ml-6">
+                        <span class="text-[#a6e3a1]">company</span><span class="text-[#6c7086]">:</span> <span class="text-[#f38ba8]">"Nanogis"</span><span class="text-[#6c7086]">,</span>
+                    </div>
+                    <div class="ml-6">
+                        <span class="text-[#a6e3a1]">stack</span><span class="text-[#6c7086]">:</span> <span class="text-[#89dceb]">[</span><span class="text-[#f38ba8]">"Angular"</span><span class="text-[#6c7086]">,</span> <span class="text-[#f38ba8]">"TypeScript"</span><span class="text-[#6c7086]">,</span> <span class="text-[#f38ba8]">"MapLibre"</span><span class="text-[#89dceb]">]</span><span class="text-[#6c7086]">,</span>
+                    </div>
+                    <div class="ml-6">
+                        <span class="text-[#a6e3a1]">passion</span><span class="text-[#6c7086]">:</span> <span class="text-[#f38ba8]">"SIG &amp; Cartographie"</span>
+                    </div>
+                    <div>
+                        <span class="text-[#f9e2af]">&#125;</span><span class="text-[#6c7086]">;</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MapLibre Card -->
+            <div id="map-card" class="relative rounded-2xl border border-gray-200 dark:border-slate-700/30 overflow-hidden shadow-2xl shadow-indigo-500/5 cursor-pointer group/map">
+                <div id="hero-map" class="w-full h-full min-h-[220px]"></div>
+                <!-- Overlay label -->
+                <div class="absolute bottom-3 left-3 px-3 py-1.5 rounded-lg bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span class="text-xs font-medium text-gray-700 dark:text-slate-300">Pyrénées-Orientales</span>
+                </div>
+                <!-- Expand icon -->
+                <div class="absolute top-3 right-3 w-8 h-8 rounded-lg bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 flex items-center justify-center opacity-0 group-hover/map:opacity-100 transition-opacity">
+                    <svg class="w-4 h-4 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" /></svg>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Map Modal -->
+<div id="map-modal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="map-modal-overlay"></div>
+    <div class="absolute inset-4 sm:inset-8 lg:inset-16 flex flex-col">
+        <div class="relative flex-1 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-700/30 shadow-2xl">
+            <div id="modal-map" class="w-full h-full"></div>
+            <!-- Top bar -->
+            <div class="absolute top-4 right-4 flex items-center gap-2 z-10">
+                <!-- Style selector -->
+                <div class="relative" id="style-selector">
+                    <button id="style-toggle" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 transition-colors">
+                        <svg class="w-4 h-4 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+                        <span class="text-xs font-medium text-gray-700 dark:text-slate-300 hidden sm:inline" id="current-style-name">DataViz</span>
+                        <svg class="w-3 h-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div id="style-dropdown" class="hidden absolute top-full right-0 mt-2 w-52 py-1 rounded-xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 shadow-xl max-h-[70vh] overflow-y-auto">
+                        <button data-style="aquarelle" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-amber-200 to-rose-300 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Aquarelle</span>
+                        </button>
+                        <button data-style="backdrop" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-slate-300 to-slate-500 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Backdrop</span>
+                        </button>
+                        <button data-style="basic" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-gray-200 to-gray-400 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Base</span>
+                        </button>
+                        <button data-style="dataviz" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-indigo-400 to-indigo-600 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">DataViz</span>
+                        </button>
+                        <button data-style="landscape" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-green-300 to-emerald-500 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Landscape</span>
+                        </button>
+                        <button data-style="ocean" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-cyan-400 to-blue-600 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Ocean</span>
+                        </button>
+                        <button data-style="openstreetmap" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-green-400 to-green-600 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">OpenStreetMap</span>
+                        </button>
+                        <button data-style="outdoor" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-lime-300 to-green-500 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Outdoor</span>
+                        </button>
+                        <button data-style="satellite" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-emerald-700 to-emerald-900 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Satellite Hybrid</span>
+                        </button>
+                        <button data-style="satellite-plain" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-green-800 to-gray-900 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Satellite Plain</span>
+                        </button>
+                        <button data-style="streets" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-blue-300 to-blue-500 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Streets</span>
+                        </button>
+                        <button data-style="toner" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-gray-100 to-gray-900 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Toner</span>
+                        </button>
+                        <button data-style="topo" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-amber-300 to-orange-500 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Topo</span>
+                        </button>
+                        <button data-style="winter" class="style-option w-full flex items-center gap-3 px-4 py-2 text-left text-sm hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-colors">
+                            <span class="w-5 h-5 rounded-md bg-gradient-to-br from-sky-200 to-blue-300 flex-shrink-0"></span>
+                            <span class="text-gray-700 dark:text-slate-300">Winter</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- 3D Toggle -->
+                <button id="toggle-3d" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 transition-colors" title="Activer/Désactiver le relief 3D">
+                    <svg class="w-4 h-4 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+                    <span class="text-xs font-medium text-gray-700 dark:text-slate-300 hidden sm:inline">3D</span>
+                </button>
+                <!-- Close button -->
+                <button id="map-modal-close" class="w-10 h-10 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 transition-colors">
+                    <svg class="w-5 h-5 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <!-- Label -->
+            <div class="absolute bottom-4 left-4 px-4 py-2 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 flex items-center gap-2 z-10">
+                <svg class="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <span class="text-sm font-medium text-gray-700 dark:text-slate-300">Pyrénées-Orientales, France</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Typing effect
+    const words = ['Angular', 'SIG', 'MapLibre', 'TypeScript'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingEl = document.getElementById('typing-text');
+
+    function type() {
+        if (!typingEl) return;
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+            typingEl.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingEl.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let timeout = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            timeout = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            timeout = 500;
+        }
+
+        setTimeout(type, timeout);
+    }
+
+    type();
+
+    // Lazy-load MapLibre
+    const ML_CSS = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';
+    const ML_JS = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js';
+    let mlLoaded = !!(window as any).maplibregl;
+    let heroMap: any = null;
+
+    function loadMapLibre(): Promise<void> {
+        if (mlLoaded) return Promise.resolve();
+        return new Promise((resolve) => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = ML_CSS;
+            document.head.appendChild(link);
+
+            const script = document.createElement('script');
+            script.src = ML_JS;
+            script.onload = () => { mlLoaded = true; resolve(); };
+            document.head.appendChild(script);
+        });
+    }
+
+    function initHeroMap() {
+        const mapContainer = document.getElementById('hero-map');
+        if (!mapContainer || !(window as any).maplibregl || heroMap) return;
+
+        const isDark = document.documentElement.classList.contains('dark');
+        heroMap = new (window as any).maplibregl.Map({
+            container: 'hero-map',
+            style: isDark
+                ? 'https://api.maptiler.com/maps/dataviz-dark/style.json?key=gFo9NAK14hwpQNC0vjKE'
+                : 'https://api.maptiler.com/maps/dataviz-light/style.json?key=gFo9NAK14hwpQNC0vjKE',
+            center: [2.89, 42.7],
+            zoom: 8,
+            interactive: false,
+            attributionControl: false,
+        });
+
+        let heroMapReady = false;
+        heroMap.on('load', () => {
+            heroMapReady = true;
+            const markerEl = document.createElement('div');
+            markerEl.innerHTML = `<div style="width:16px;height:16px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 10px rgba(99,102,241,0.5)"></div>`;
+            new (window as any).maplibregl.Marker({ element: markerEl })
+                .setLngLat([2.89, 42.7])
+                .addTo(heroMap);
+        });
+
+        const obs = new MutationObserver(() => {
+            if (!heroMapReady) return;
+            heroMapReady = false;
+            const d = document.documentElement.classList.contains('dark');
+            heroMap.setStyle(d
+                ? 'https://api.maptiler.com/maps/dataviz-dark/style.json?key=gFo9NAK14hwpQNC0vjKE'
+                : 'https://api.maptiler.com/maps/dataviz-light/style.json?key=gFo9NAK14hwpQNC0vjKE');
+            heroMap.once('style.load', () => { heroMapReady = true; });
+        });
+        obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    // Load MapLibre when map card enters viewport
+    const mapCardEl = document.getElementById('map-card');
+    if (mapCardEl) {
+        const mapObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                mapObserver.disconnect();
+                loadMapLibre().then(initHeroMap);
+            }
+        }, { rootMargin: '200px' });
+        mapObserver.observe(mapCardEl);
+    }
+
+    // Map modal
+    const mapCard = document.getElementById('map-card');
+    const mapModal = document.getElementById('map-modal');
+    const mapModalOverlay = document.getElementById('map-modal-overlay');
+    const mapModalClose = document.getElementById('map-modal-close');
+    let modalMap: any = null;
+    let modalMapReady = false;
+
+    let currentStyleKey = 'dataviz';
+    function getMapStyle() {
+        return mapStyles[currentStyleKey]?.url() || mapStyles.dataviz.url();
+    }
+
+    async function openMapModal() {
+        if (!mapModal) return;
+        await loadMapLibre();
+        mapModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        if (!modalMap) {
+            modalMap = new (window as any).maplibregl.Map({
+                container: 'modal-map',
+                style: getMapStyle(),
+                center: [2.89, 42.7],
+                zoom: 10,
+                maxPitch: 85,
+                attributionControl: true,
+            });
+
+            modalMap.addControl(new (window as any).maplibregl.NavigationControl({ visualizePitch: true }), 'top-left');
+
+            modalMap.on('load', () => {
+                modalMapReady = true;
+                const markerEl = document.createElement('div');
+                markerEl.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
+                new (window as any).maplibregl.Marker({ element: markerEl })
+                    .setLngLat([2.89, 42.7])
+                    .addTo(modalMap);
+            });
+
+            // Watch theme changes
+            const obs = new MutationObserver(() => {
+                if (!modalMapReady) return;
+                modalMapReady = false;
+                modalMap.setStyle(getMapStyle());
+                modalMap.once('style.load', () => {
+                    modalMapReady = true;
+                    if (is3D) addTerrain();
+                    const m = document.createElement('div');
+                    m.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
+                    new (window as any).maplibregl.Marker({ element: m }).setLngLat([2.89, 42.7]).addTo(modalMap);
+                });
+            });
+            obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        } else {
+            modalMap.resize();
+        }
+    }
+
+    function closeMapModal() {
+        mapModal?.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    mapCard?.addEventListener('click', openMapModal);
+    mapModalClose?.addEventListener('click', closeMapModal);
+    mapModalOverlay?.addEventListener('click', closeMapModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMapModal();
+    });
+
+    // 3D Terrain toggle
+    const toggle3d = document.getElementById('toggle-3d');
+    let is3D = false;
+    const TERRAIN_URL = `https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=gFo9NAK14hwpQNC0vjKE`;
+
+    function addTerrain() {
+        if (!modalMap) return;
+        if (!modalMap.getSource('terrain-source')) {
+            modalMap.addSource('terrain-source', { type: 'raster-dem', url: TERRAIN_URL, tileSize: 256 });
+        }
+        modalMap.setTerrain({ source: 'terrain-source', exaggeration: 1.5 });
+    }
+
+    function removeTerrain() {
+        if (!modalMap) return;
+        modalMap.setTerrain(null);
+    }
+
+    toggle3d?.addEventListener('click', () => {
+        if (!modalMap) return;
+        is3D = !is3D;
+        if (is3D) {
+            addTerrain();
+            modalMap.easeTo({ pitch: 60, duration: 1000 });
+            toggle3d.classList.add('ring-2', 'ring-indigo-500/50', 'border-indigo-400', 'dark:border-indigo-500');
+        } else {
+            removeTerrain();
+            modalMap.easeTo({ pitch: 0, duration: 1000 });
+            toggle3d.classList.remove('ring-2', 'ring-indigo-500/50', 'border-indigo-400', 'dark:border-indigo-500');
+        }
+    });
+
+    // Style selector
+    const KEY = 'gFo9NAK14hwpQNC0vjKE';
+    const dark = () => document.documentElement.classList.contains('dark');
+    const mt = (id: string) => `https://api.maptiler.com/maps/${id}/style.json?key=${KEY}`;
+
+    const mapStyles: Record<string, { url: () => string; name: string }> = {
+        aquarelle:        { url: () => mt('aquarelle'),                          name: 'Aquarelle' },
+        backdrop:         { url: () => mt(dark() ? 'backdrop-dark' : 'backdrop'),name: 'Backdrop' },
+        basic:            { url: () => mt(dark() ? 'basic-v2-dark' : 'basic-v2'), name: 'Base' },
+        dataviz:          { url: () => mt(dark() ? 'dataviz-dark' : 'dataviz-light'), name: 'DataViz' },
+        landscape:        { url: () => mt(dark() ? 'landscape-dark' : 'landscape'), name: 'Landscape' },
+        ocean:            { url: () => mt('ocean'),                              name: 'Ocean' },
+        openstreetmap:    { url: () => mt('openstreetmap'),                      name: 'OpenStreetMap' },
+        outdoor:          { url: () => mt(dark() ? 'outdoor-v2-dark' : 'outdoor-v2'), name: 'Outdoor' },
+        satellite:        { url: () => mt('satellite'),                          name: 'Satellite Hybrid' },
+        'satellite-plain':{ url: () => mt('satellite'),                          name: 'Satellite Plain' },
+        streets:          { url: () => mt(dark() ? 'streets-v2-dark' : 'streets-v2'), name: 'Streets' },
+        toner:            { url: () => mt(dark() ? 'toner-v2-dark' : 'toner-v2'), name: 'Toner' },
+        topo:             { url: () => mt(dark() ? 'topo-v2-dark' : 'topo-v2'), name: 'Topo' },
+        winter:           { url: () => mt(dark() ? 'winter-v2-dark' : 'winter-v2'), name: 'Winter' },
+    };
+
+    const styleToggle = document.getElementById('style-toggle');
+    const styleDropdown = document.getElementById('style-dropdown');
+    const styleOptions = document.querySelectorAll('.style-option');
+    const currentStyleName = document.getElementById('current-style-name');
+
+    styleToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        styleDropdown?.classList.toggle('hidden');
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', () => {
+        styleDropdown?.classList.add('hidden');
+    });
+
+    styleOptions.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const styleKey = (btn as HTMLElement).dataset.style || 'dataviz';
+            const style = mapStyles[styleKey];
+            if (modalMap && style && modalMapReady) {
+                currentStyleKey = styleKey;
+                modalMapReady = false;
+                modalMap.setStyle(style.url());
+                modalMap.once('style.load', () => {
+                    modalMapReady = true;
+                    if (is3D) addTerrain();
+                    const markerEl = document.createElement('div');
+                    markerEl.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
+                    new (window as any).maplibregl.Marker({ element: markerEl })
+                        .setLngLat([2.89, 42.7])
+                        .addTo(modalMap);
+                });
+                if (currentStyleName) currentStyleName.textContent = style.name;
+            }
+            styleDropdown?.classList.add('hidden');
+        });
+    });
+</script>
