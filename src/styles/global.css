@@ -72,9 +72,16 @@ html {
 .typing-cursor::after {
     content: '|';
     animation: blink 1s step-end infinite;
-    color: #6366f1;
     font-weight: 300;
     margin-left: 2px;
+}
+
+.dark .typing-cursor::after {
+    color: #6366f1;
+}
+
+.typing-cursor::after {
+    color: #4f46e5;
 }
 
 /* Gradient text animation */

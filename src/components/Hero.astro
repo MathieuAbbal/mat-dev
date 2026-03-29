@@ -54,9 +54,13 @@ const base = import.meta.env.BASE_URL;
                     Salut, je suis
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee] animated-gradient" id="hero-name">Mathieu</span>
                 </h1>
-                <p class="text-lg sm:text-xl lg:text-2xl text-indigo-600 dark:text-indigo-400 font-semibold mb-6 reveal reveal-delay-2">
-                    Développeur Full Stack <span class="typing-cursor" id="typing-text"></span>
-                </p>
+                <div class="mb-6 reveal reveal-delay-2">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-50 dark:bg-[#0c0c1a] border border-gray-200 dark:border-slate-700/30 font-mono text-sm sm:text-base">
+                        <span class="text-indigo-500 dark:text-[#cba6f7]">&gt;</span>
+                        <span class="text-emerald-600 dark:text-[#a6e3a1]">Développeur Full Stack</span>
+                        <span class="text-rose-500 dark:text-[#f38ba8] typing-cursor" id="typing-text"></span>
+                    </span>
+                </div>
 
                 <div class="max-w-none reveal reveal-delay-3">
                     <p class="text-gray-600 dark:text-slate-400 leading-relaxed mb-4 text-base sm:text-lg">
@@ -94,30 +98,34 @@ const base = import.meta.env.BASE_URL;
         <!-- Code Block + Map -->
         <div class="mt-8 sm:mt-16 grid md:grid-cols-2 gap-4 sm:gap-6 reveal">
             <!-- Code Block -->
-            <div class="relative rounded-2xl bg-[#1e1e2e] dark:bg-[#0c0c1a] border border-gray-700/50 dark:border-slate-700/30 overflow-hidden shadow-2xl shadow-indigo-500/5">
+            <div class="relative rounded-2xl bg-white dark:bg-[#0c0c1a] border border-gray-200 dark:border-slate-700/30 overflow-hidden shadow-2xl shadow-indigo-500/5">
                 <!-- Title bar -->
-                <div class="flex items-center px-4 py-2.5 bg-[#2b2b3c] dark:bg-[#111119] border-b border-gray-700/30">
-                    <span class="text-xs text-gray-400 font-mono">mathieu.ts</span>
+                <div class="flex items-center justify-between px-4 py-2.5 bg-gray-50 dark:bg-[#111119] border-b border-gray-200 dark:border-gray-700/30">
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-mono">mathieu.ts</span>
+                    <button id="copy-code" class="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors p-1" title="Copier">
+                        <svg id="copy-icon" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <svg id="check-icon" class="w-4 h-4 hidden text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </button>
                 </div>
                 <!-- Code content -->
                 <div class="p-4 sm:p-5 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
                     <div>
-                        <span class="text-[#cba6f7]">const</span> <span class="text-[#89b4fa]">mathieu</span> <span class="text-[#89dceb]">=</span> <span class="text-[#f9e2af]">&#123;</span>
+                        <span class="text-purple-600 dark:text-[#cba6f7]">const</span> <span class="text-blue-600 dark:text-[#89b4fa]">mathieu</span> <span class="text-cyan-600 dark:text-[#89dceb]">=</span> <span class="text-amber-600 dark:text-[#f9e2af]">&#123;</span>
                     </div>
                     <div class="ml-6">
-                        <span class="text-[#a6e3a1]">role</span><span class="text-[#6c7086]">:</span> <span class="text-[#f38ba8]">"Full Stack Developer"</span><span class="text-[#6c7086]">,</span>
+                        <span class="text-emerald-600 dark:text-[#a6e3a1]">role</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-rose-600 dark:text-[#f38ba8]">"Full Stack Developer"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span>
                     </div>
                     <div class="ml-6">
-                        <span class="text-[#a6e3a1]">company</span><span class="text-[#6c7086]">:</span> <span class="text-[#f38ba8]">"Nanogis"</span><span class="text-[#6c7086]">,</span>
+                        <span class="text-emerald-600 dark:text-[#a6e3a1]">company</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-rose-600 dark:text-[#f38ba8]">"Nanogis"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span>
                     </div>
                     <div class="ml-6">
-                        <span class="text-[#a6e3a1]">stack</span><span class="text-[#6c7086]">:</span> <span class="text-[#89dceb]">[</span><span class="text-[#f38ba8]">"Angular"</span><span class="text-[#6c7086]">,</span> <span class="text-[#f38ba8]">"TypeScript"</span><span class="text-[#6c7086]">,</span> <span class="text-[#f38ba8]">"MapLibre"</span><span class="text-[#89dceb]">]</span><span class="text-[#6c7086]">,</span>
+                        <span class="text-emerald-600 dark:text-[#a6e3a1]">stack</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-cyan-600 dark:text-[#89dceb]">[</span><span class="text-rose-600 dark:text-[#f38ba8]">"Angular"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span> <span class="text-rose-600 dark:text-[#f38ba8]">"TypeScript"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span> <span class="text-rose-600 dark:text-[#f38ba8]">"MapLibre"</span><span class="text-cyan-600 dark:text-[#89dceb]">]</span><span class="text-gray-400 dark:text-[#6c7086]">,</span>
                     </div>
                     <div class="ml-6">
-                        <span class="text-[#a6e3a1]">passion</span><span class="text-[#6c7086]">:</span> <span class="text-[#f38ba8]">"SIG &amp; Cartographie"</span>
+                        <span class="text-emerald-600 dark:text-[#a6e3a1]">passion</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-rose-600 dark:text-[#f38ba8]">"SIG &amp; Cartographie"</span>
                     </div>
                     <div>
-                        <span class="text-[#f9e2af]">&#125;</span><span class="text-[#6c7086]">;</span>
+                        <span class="text-amber-600 dark:text-[#f9e2af]">&#125;</span><span class="text-gray-400 dark:text-[#6c7086]">;</span>
                     </div>
                 </div>
             </div>
@@ -267,6 +275,22 @@ const base = import.meta.env.BASE_URL;
     }
 
     type();
+
+    // Copy code button
+    const copyBtn = document.getElementById('copy-code');
+    const copyIcon = document.getElementById('copy-icon');
+    const checkIcon = document.getElementById('check-icon');
+    const codeText = `const mathieu = {\n  role: "Full Stack Developer",\n  company: "Nanogis",\n  stack: ["Angular", "TypeScript", "MapLibre"],\n  passion: "SIG & Cartographie"\n};`;
+
+    copyBtn?.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(codeText);
+        copyIcon?.classList.add('hidden');
+        checkIcon?.classList.remove('hidden');
+        setTimeout(() => {
+            copyIcon?.classList.remove('hidden');
+            checkIcon?.classList.add('hidden');
+        }, 2000);
+    });
 
     // Lazy-load MapLibre
     const ML_CSS = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';
