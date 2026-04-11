@@ -170,6 +170,45 @@ html {
     background: #6b7280;
 }
 
+/* MapLibre controls custom style */
+.maplibregl-ctrl-group {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgb(229, 231, 235) !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden;
+}
+
+.dark .maplibregl-ctrl-group {
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-color: rgba(51, 65, 85, 0.5) !important;
+}
+
+.maplibregl-ctrl-group button {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgb(229, 231, 235) !important;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.dark .maplibregl-ctrl-group button {
+    border-bottom-color: rgba(51, 65, 85, 0.5) !important;
+}
+
+.maplibregl-ctrl-group button:last-child {
+    border-bottom: none !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+    background: rgba(99, 102, 241, 0.1) !important;
+}
+
+.dark .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+    filter: invert(1) brightness(0.9);
+}
+
 /* Print styles */
 @media print {
     header, footer, #back2Top {

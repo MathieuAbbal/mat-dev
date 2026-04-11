@@ -13,7 +13,8 @@ const base = import.meta.env.BASE_URL;
             <div class="lg:w-1/3 mb-10 lg:mb-0 reveal">
                 <div class="text-center lg:text-left">
                     <img class="w-32 h-32 sm:w-44 sm:h-44 rounded-full mx-auto lg:mx-0 border-4 border-indigo-200 dark:border-indigo-500/30 shadow-xl shadow-indigo-500/20 object-cover"
-                        src={`${base}img/profil.jpg`} alt="Mathieu Abbal" />
+                        src={`${base}img/profil.jpg`} alt="Mathieu Abbal - Développeur Full Stack Angular & SIG"
+                        width="176" height="176" loading="eager" decoding="async" />
 
                     <div class="mt-8 space-y-3">
                         <div class="flex items-center justify-center lg:justify-start text-gray-500 dark:text-slate-400 group">
@@ -32,15 +33,15 @@ const base = import.meta.env.BASE_URL;
 
                     <!-- Social Links -->
                     <div class="flex justify-center lg:justify-start gap-3 mt-6">
-                        <a href="https://github.com/MathieuAbbal" target="_blank"
+                        <a href="https://github.com/MathieuAbbal" target="_blank" rel="noopener" aria-label="Profil GitHub"
                             class="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800/80 text-gray-500 dark:text-slate-400 hover:bg-indigo-600 hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-300">
                             <i class="fab fa-github text-lg"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/mathieuabbal/" target="_blank"
+                        <a href="https://www.linkedin.com/in/mathieuabbal/" target="_blank" rel="noopener" aria-label="Profil LinkedIn"
                             class="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800/80 text-gray-500 dark:text-slate-400 hover:bg-indigo-600 hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-300">
                             <i class="fab fa-linkedin-in text-lg"></i>
                         </a>
-                        <a href="https://twitter.com/Mathieu_dev_" target="_blank"
+                        <a href="https://twitter.com/Mathieu_dev_" target="_blank" rel="noopener" aria-label="Profil Twitter"
                             class="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800/80 text-gray-500 dark:text-slate-400 hover:bg-indigo-600 hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-300">
                             <i class="fab fa-twitter text-lg"></i>
                         </a>
@@ -95,8 +96,8 @@ const base = import.meta.env.BASE_URL;
             </div>
         </div>
 
-        <!-- Code Block + Map -->
-        <div class="mt-8 sm:mt-16 grid md:grid-cols-2 gap-4 sm:gap-6 reveal">
+        <!-- Code Block + Radar + Map -->
+        <div class="mt-8 sm:mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 reveal">
             <!-- Code Block -->
             <div class="relative rounded-2xl bg-white dark:bg-[#0c0c1a] border border-gray-200 dark:border-slate-700/30 overflow-hidden shadow-2xl shadow-indigo-500/5">
                 <!-- Title bar -->
@@ -119,7 +120,7 @@ const base = import.meta.env.BASE_URL;
                         <span class="text-emerald-600 dark:text-[#a6e3a1]">company</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-rose-600 dark:text-[#f38ba8]">"Nanogis"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span>
                     </div>
                     <div class="ml-6">
-                        <span class="text-emerald-600 dark:text-[#a6e3a1]">stack</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-cyan-600 dark:text-[#89dceb]">[</span><span class="text-rose-600 dark:text-[#f38ba8]">"Angular"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span> <span class="text-rose-600 dark:text-[#f38ba8]">"TypeScript"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span> <span class="text-rose-600 dark:text-[#f38ba8]">"MapLibre"</span><span class="text-cyan-600 dark:text-[#89dceb]">]</span><span class="text-gray-400 dark:text-[#6c7086]">,</span>
+                        <span class="text-emerald-600 dark:text-[#a6e3a1]">stack</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-cyan-600 dark:text-[#89dceb]">[</span><span class="text-rose-600 dark:text-[#f38ba8]">"Angular"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span> <span class="text-rose-600 dark:text-[#f38ba8]">"TypeScript"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span> <span class="text-rose-600 dark:text-[#f38ba8]">"MapLibre"</span><span class="text-gray-400 dark:text-[#6c7086]">,</span> <span class="text-rose-600 dark:text-[#f38ba8]">"Chart.js"</span><span class="text-cyan-600 dark:text-[#89dceb]">]</span><span class="text-gray-400 dark:text-[#6c7086]">,</span>
                     </div>
                     <div class="ml-6">
                         <span class="text-emerald-600 dark:text-[#a6e3a1]">passion</span><span class="text-gray-400 dark:text-[#6c7086]">:</span> <span class="text-rose-600 dark:text-[#f38ba8]">"SIG &amp; Cartographie"</span>
@@ -128,6 +129,50 @@ const base = import.meta.env.BASE_URL;
                         <span class="text-amber-600 dark:text-[#f9e2af]">&#125;</span><span class="text-gray-400 dark:text-[#6c7086]">;</span>
                     </div>
                 </div>
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="relative rounded-2xl bg-white dark:bg-[#0c0c1a] border border-gray-200 dark:border-slate-700/30 overflow-hidden shadow-2xl shadow-indigo-500/5 flex items-center justify-center p-4">
+                <svg viewBox="-60 0 420 300" class="w-full max-w-[320px]" id="radar-chart">
+                    <!-- Grid pentagons -->
+                    <g class="text-gray-200 dark:text-slate-800">
+                        <polygon points="150,30 264,113 220,247 80,247 36,113" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <polygon points="150,54 240,122 204,229 96,229 60,122" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <polygon points="150,78 216,131 188,211 112,211 84,131" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <polygon points="150,102 192,140 172,193 128,193 108,140" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <!-- Axis lines -->
+                        <line x1="150" y1="150" x2="150" y2="30" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                        <line x1="150" y1="150" x2="264" y2="113" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                        <line x1="150" y1="150" x2="220" y2="247" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                        <line x1="150" y1="150" x2="80" y2="247" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                        <line x1="150" y1="150" x2="36" y2="113" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                    </g>
+                    <!-- Data polygon (Frontend:90, Backend:75, Carto:95, Dataviz:80, Archi:70) -->
+                    <polygon
+                        id="radar-data"
+                        points="150,42 249,119 206,239 87,232 47,121"
+                        class="fill-indigo-500/20 dark:fill-indigo-400/15 stroke-indigo-500 dark:stroke-indigo-400"
+                        stroke-width="2"
+                        style="transition: all 0.6s ease"
+                    />
+                    <!-- Data points -->
+                    <circle cx="150" cy="42" r="4" class="fill-indigo-500 dark:fill-indigo-400"/>
+                    <circle cx="249" cy="119" r="4" class="fill-indigo-500 dark:fill-indigo-400"/>
+                    <circle cx="206" cy="239" r="4" class="fill-indigo-500 dark:fill-indigo-400"/>
+                    <circle cx="87" cy="232" r="4" class="fill-indigo-500 dark:fill-indigo-400"/>
+                    <circle cx="47" cy="121" r="4" class="fill-indigo-500 dark:fill-indigo-400"/>
+                    <!-- Labels -->
+                    <text x="150" y="18" text-anchor="middle" class="fill-gray-700 dark:fill-slate-300 text-[11px] font-semibold">Frontend</text>
+                    <text x="150" y="28" text-anchor="middle" class="fill-indigo-500 dark:fill-indigo-400 text-[10px]">90%</text>
+                    <text x="278" y="115" text-anchor="start" class="fill-gray-700 dark:fill-slate-300 text-[11px] font-semibold">Backend</text>
+                    <text x="278" y="127" text-anchor="start" class="fill-indigo-500 dark:fill-indigo-400 text-[10px]">75%</text>
+                    <text x="228" y="262" text-anchor="start" class="fill-gray-700 dark:fill-slate-300 text-[11px] font-semibold">Dataviz</text>
+                    <text x="228" y="274" text-anchor="start" class="fill-indigo-500 dark:fill-indigo-400 text-[10px]">80%</text>
+                    <text x="72" y="262" text-anchor="end" class="fill-gray-700 dark:fill-slate-300 text-[11px] font-semibold">Cartographie</text>
+                    <text x="72" y="274" text-anchor="end" class="fill-indigo-500 dark:fill-indigo-400 text-[10px]">95%</text>
+                    <text x="22" y="115" text-anchor="end" class="fill-gray-700 dark:fill-slate-300 text-[11px] font-semibold">Architecture</text>
+                    <text x="22" y="127" text-anchor="end" class="fill-indigo-500 dark:fill-indigo-400 text-[10px]">70%</text>
+                </svg>
             </div>
 
             <!-- MapLibre Card -->
@@ -226,6 +271,11 @@ const base = import.meta.env.BASE_URL;
                     <svg class="w-4 h-4 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
                     <span class="text-xs font-medium text-gray-700 dark:text-slate-300 hidden sm:inline">3D</span>
                 </button>
+                <!-- Measure Toggle -->
+                <button id="toggle-measure" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 transition-colors" title="Mesurer une distance">
+                    <svg class="w-4 h-4 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l3-3 3 3 3-3 3 3 3-3 3 3M6 9V6m6 3V6m6 3V6" /></svg>
+                    <span class="text-xs font-medium text-gray-700 dark:text-slate-300 hidden sm:inline">Mesurer</span>
+                </button>
                 <!-- Close button -->
                 <button id="map-modal-close" class="w-10 h-10 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 transition-colors">
                     <svg class="w-5 h-5 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -235,6 +285,12 @@ const base = import.meta.env.BASE_URL;
             <div class="absolute bottom-4 left-4 px-4 py-2 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 flex items-center gap-2 z-10">
                 <svg class="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 <span class="text-sm font-medium text-gray-700 dark:text-slate-300">Pyrénées-Orientales, France</span>
+            </div>
+            <!-- Measure result panel -->
+            <div id="measure-panel" class="hidden absolute bottom-12 right-4 px-4 py-2 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-indigo-300 dark:border-indigo-500/50 z-10">
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-slate-500">Distance</div>
+                <div class="text-base font-bold text-indigo-600 dark:text-indigo-400" id="measure-result">—</div>
+                <div class="text-[10px] text-gray-400 dark:text-slate-500" id="measure-hint">Cliquez pour ajouter des points</div>
             </div>
         </div>
     </div>
@@ -280,7 +336,7 @@ const base = import.meta.env.BASE_URL;
     const copyBtn = document.getElementById('copy-code');
     const copyIcon = document.getElementById('copy-icon');
     const checkIcon = document.getElementById('check-icon');
-    const codeText = `const mathieu = {\n  role: "Full Stack Developer",\n  company: "Nanogis",\n  stack: ["Angular", "TypeScript", "MapLibre"],\n  passion: "SIG & Cartographie"\n};`;
+    const codeText = `const mathieu = {\n  role: "Full Stack Developer",\n  company: "Nanogis",\n  stack: ["Angular", "TypeScript", "MapLibre", "Chart.js"],\n  passion: "SIG & Cartographie"\n};`;
 
     copyBtn?.addEventListener('click', async () => {
         await navigator.clipboard.writeText(codeText);
@@ -465,6 +521,123 @@ const base = import.meta.env.BASE_URL;
         }
     });
 
+    // Distance measurement
+    const toggleMeasure = document.getElementById('toggle-measure');
+    const measurePanel = document.getElementById('measure-panel');
+    const measureResult = document.getElementById('measure-result');
+    const measureHint = document.getElementById('measure-hint');
+    let measureMode = false;
+    let measurePoints: number[][] = [];
+
+    function haversine(a: number[], b: number[]): number {
+        const R = 6371;
+        const toRad = (d: number) => (d * Math.PI) / 180;
+        const dLat = toRad(b[1] - a[1]);
+        const dLon = toRad(b[0] - a[0]);
+        const lat1 = toRad(a[1]);
+        const lat2 = toRad(b[1]);
+        const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
+        return 2 * R * Math.asin(Math.sqrt(h));
+    }
+
+    function totalDistance(): number {
+        let total = 0;
+        for (let i = 1; i < measurePoints.length; i++) {
+            total += haversine(measurePoints[i - 1], measurePoints[i]);
+        }
+        return total;
+    }
+
+    function formatDistance(km: number): string {
+        if (km < 1) return `${Math.round(km * 1000)} m`;
+        return `${km.toFixed(2)} km`;
+    }
+
+    function updateMeasureLayer() {
+        if (!modalMap) return;
+        const src = modalMap.getSource('measure-line');
+        const lineData = {
+            type: 'Feature',
+            geometry: { type: 'LineString', coordinates: measurePoints },
+            properties: {},
+        };
+        if (src) {
+            src.setData(lineData);
+        } else {
+            modalMap.addSource('measure-line', { type: 'geojson', data: lineData });
+            modalMap.addLayer({
+                id: 'measure-line-layer',
+                type: 'line',
+                source: 'measure-line',
+                paint: {
+                    'line-color': '#6366f1',
+                    'line-width': 3,
+                    'line-dasharray': [2, 2],
+                },
+            });
+        }
+
+        const ptsSrc = modalMap.getSource('measure-points');
+        const ptsData = {
+            type: 'FeatureCollection',
+            features: measurePoints.map((p, i) => ({
+                type: 'Feature',
+                geometry: { type: 'Point', coordinates: p },
+                properties: { index: i },
+            })),
+        };
+        if (ptsSrc) {
+            ptsSrc.setData(ptsData);
+        } else {
+            modalMap.addSource('measure-points', { type: 'geojson', data: ptsData });
+            modalMap.addLayer({
+                id: 'measure-points-layer',
+                type: 'circle',
+                source: 'measure-points',
+                paint: {
+                    'circle-radius': 5,
+                    'circle-color': '#6366f1',
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#ffffff',
+                },
+            });
+        }
+    }
+
+    function clearMeasure() {
+        if (!modalMap) return;
+        if (modalMap.getLayer('measure-line-layer')) modalMap.removeLayer('measure-line-layer');
+        if (modalMap.getLayer('measure-points-layer')) modalMap.removeLayer('measure-points-layer');
+        if (modalMap.getSource('measure-line')) modalMap.removeSource('measure-line');
+        if (modalMap.getSource('measure-points')) modalMap.removeSource('measure-points');
+        measurePoints = [];
+        if (measureResult) measureResult.textContent = '—';
+    }
+
+    function onMapClick(e: any) {
+        measurePoints.push([e.lngLat.lng, e.lngLat.lat]);
+        updateMeasureLayer();
+        if (measureResult) measureResult.textContent = formatDistance(totalDistance());
+        if (measureHint) measureHint.textContent = measurePoints.length < 2 ? 'Ajoutez un autre point' : 'Cliquez pour continuer';
+    }
+
+    toggleMeasure?.addEventListener('click', () => {
+        if (!modalMap) return;
+        measureMode = !measureMode;
+        if (measureMode) {
+            measurePanel?.classList.remove('hidden');
+            modalMap.getCanvas().style.cursor = 'crosshair';
+            modalMap.on('click', onMapClick);
+            toggleMeasure.classList.add('ring-2', 'ring-indigo-500/50', 'border-indigo-400', 'dark:border-indigo-500');
+        } else {
+            measurePanel?.classList.add('hidden');
+            modalMap.getCanvas().style.cursor = '';
+            modalMap.off('click', onMapClick);
+            clearMeasure();
+            toggleMeasure.classList.remove('ring-2', 'ring-indigo-500/50', 'border-indigo-400', 'dark:border-indigo-500');
+        }
+    });
+
     // Style selector
     const KEY = 'gFo9NAK14hwpQNC0vjKE';
     const dark = () => document.documentElement.classList.contains('dark');
@@ -507,14 +680,18 @@ const base = import.meta.env.BASE_URL;
             e.stopPropagation();
             const styleKey = (btn as HTMLElement).dataset.style || 'dataviz';
             const style = mapStyles[styleKey];
-            if (modalMap && style && modalMapReady) {
+            if (modalMap && style) {
                 currentStyleKey = styleKey;
-                modalMapReady = false;
-                modalMap.setStyle(style.url());
-                modalMap.once('style.load', () => {
-                    modalMapReady = true;
-                    if (is3D) addTerrain();
-                });
+                try {
+                    modalMap.setStyle(style.url());
+                    modalMap.once('style.load', () => {
+                        modalMapReady = true;
+                        if (is3D) addTerrain();
+                        if (measureMode && measurePoints.length > 0) updateMeasureLayer();
+                    });
+                } catch (err) {
+                    console.error('Style change failed:', err);
+                }
                 if (currentStyleName) currentStyleName.textContent = style.name;
             }
             styleDropdown?.classList.add('hidden');

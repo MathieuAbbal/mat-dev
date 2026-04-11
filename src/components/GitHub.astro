@@ -1,23 +1,5 @@
 ---
 const username = 'MathieuAbbal';
-
-const mergedPRs = [
-    { repo: 'angular/components', title: 'fix typo in aria-accessible-name comment', number: 32703 },
-    { repo: 'angular/components', title: 'fix typo in drawer comment', number: 32702 },
-    { repo: 'maplibre/maplibre.github.io', title: 'correct typos in MLT release post', number: 531 },
-    { repo: 'maplibre/maplibre.github.io', title: 'correct typo in .gitignore', number: 527 },
-];
-
-const repos = [
-    { name: 'mat-dev', desc: 'Portfolio personnel', lang: 'Astro', color: '#FF5D01' },
-    { name: 'HubEau', desc: 'Application cartographique interactive hydrologique', lang: 'TypeScript', color: '#3178C6' },
-    { name: 'strava-dashboard', desc: 'Dashboard activités sportives', lang: 'TypeScript', color: '#3178C6' },
-    { name: 'components', desc: 'Infrastructure de composants Material Design', lang: 'TypeScript', color: '#3178C6' },
-    { name: 'Family_app', desc: 'Application familiale', lang: 'TypeScript', color: '#3178C6' },
-    { name: 'sport-et-nature', desc: 'Site sport et nature', lang: 'HTML', color: '#e34c26' },
-    { name: 'site_de_sophie', desc: 'Site vitrine Infirmière Libérale', lang: 'TypeScript', color: '#3178C6' },
-    { name: 'my-blog', desc: 'Blog personnel', lang: 'TypeScript', color: '#3178C6' },
-];
 ---
 
 <section id="github" class="py-12 sm:py-20 bg-white/60 dark:bg-white/[0.02] border-y border-indigo-100/40 dark:border-white/5">
@@ -77,7 +59,7 @@ const repos = [
             </div>
         </div>
 
-        <!-- Contributions to -->
+        <!-- Contributions to (orgs) -->
         <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
             <a href="https://github.com/nanogis" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700/50 rounded-full hover:border-indigo-400/50 transition-all text-sm group">
                 <img src="https://github.com/nanogis.png" alt="nanogis" class="w-5 h-5 rounded-md" loading="lazy" />
@@ -97,129 +79,50 @@ const repos = [
             </a>
         </div>
 
-        <!-- Merged PRs -->
+        <!-- Merged PRs (dynamic) -->
         <div class="mb-10 reveal">
             <h3 class="text-lg font-semibold text-gray-700 dark:text-slate-300 mb-4 flex items-center">
                 <span class="w-10 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 mr-3 rounded-full"></span>
                 Pull Requests mergées
             </h3>
-            <div class="flex flex-wrap gap-2">
-                {mergedPRs.map((pr) => (
-                    <a href={`https://github.com/${pr.repo}/pull/${pr.number}`} target="_blank"
-                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-full hover:border-green-400 dark:hover:border-green-400/40 hover:bg-green-100 dark:hover:bg-green-500/15 transition-all group">
-                        <svg class="w-3.5 h-3.5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-                        <span class="text-xs font-medium text-green-700 dark:text-green-300">{pr.repo.split('/')[0]}/{pr.repo.split('/')[1]}</span>
-                        <span class="text-xs text-green-600/70 dark:text-green-400/60 hidden sm:inline">— {pr.title}</span>
-                    </a>
-                ))}
+            <div id="prs-container" class="flex flex-wrap gap-2">
+                <span class="text-xs text-gray-400 dark:text-slate-500">Chargement...</span>
             </div>
         </div>
 
-        <!-- Stats + Languages -->
+        <!-- Stats + Languages (dynamic) -->
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10 stagger-children">
-            <!-- Top Languages -->
+            <!-- Top Languages (dynamic) -->
             <div class="bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl p-6 hover:border-indigo-400/50 dark:hover:border-indigo-500/50 glow-hover transition-all duration-300">
                 <h3 class="text-sm font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider mb-5 flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                     Langages principaux
                 </h3>
-                <div class="space-y-4">
-                    <div>
-                        <div class="flex justify-between text-sm mb-1">
-                            <span class="font-medium text-gray-700 dark:text-slate-300">TypeScript</span>
-                            <span class="text-gray-500 dark:text-slate-400">42%</span>
-                        </div>
-                        <div class="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-[#3178C6] rounded-full" style="width: 42%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm mb-1">
-                            <span class="font-medium text-gray-700 dark:text-slate-300">JavaScript</span>
-                            <span class="text-gray-500 dark:text-slate-400">22%</span>
-                        </div>
-                        <div class="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-[#f1e05a] rounded-full" style="width: 22%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm mb-1">
-                            <span class="font-medium text-gray-700 dark:text-slate-300">HTML</span>
-                            <span class="text-gray-500 dark:text-slate-400">18%</span>
-                        </div>
-                        <div class="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-[#e34c26] rounded-full" style="width: 18%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm mb-1">
-                            <span class="font-medium text-gray-700 dark:text-slate-300">CSS</span>
-                            <span class="text-gray-500 dark:text-slate-400">12%</span>
-                        </div>
-                        <div class="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-[#563d7c] rounded-full" style="width: 12%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm mb-1">
-                            <span class="font-medium text-gray-700 dark:text-slate-300">SCSS</span>
-                            <span class="text-gray-500 dark:text-slate-400">6%</span>
-                        </div>
-                        <div class="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-[#c6538c] rounded-full" style="width: 6%"></div>
-                        </div>
-                    </div>
+                <div id="langs-container" class="space-y-4">
+                    <span class="text-xs text-gray-400 dark:text-slate-500">Chargement...</span>
                 </div>
             </div>
 
-            <!-- Stats -->
+            <!-- Stats (dynamic) -->
             <div class="bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl p-6 hover:border-indigo-400/50 dark:hover:border-indigo-500/50 glow-hover transition-all duration-300">
                 <h3 class="text-sm font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider mb-5 flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     Activité
                 </h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 rounded-xl bg-gray-50 dark:bg-slate-800/50 text-center">
-                        <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">1 881</div>
-                        <div class="text-xs text-gray-500 dark:text-slate-400 mt-1">Contributions</div>
-                    </div>
-                    <div class="p-4 rounded-xl bg-gray-50 dark:bg-slate-800/50 text-center">
-                        <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">21+</div>
-                        <div class="text-xs text-gray-500 dark:text-slate-400 mt-1">Repos publics</div>
-                    </div>
-                    <div class="p-4 rounded-xl bg-gray-50 dark:bg-slate-800/50 text-center">
-                        <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">39j</div>
-                        <div class="text-xs text-gray-500 dark:text-slate-400 mt-1">Meilleur streak</div>
-                    </div>
-                    <div class="p-4 rounded-xl bg-gray-50 dark:bg-slate-800/50 text-center">
-                        <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-[#818cf8] dark:to-[#22d3ee]">5 ans</div>
-                        <div class="text-xs text-gray-500 dark:text-slate-400 mt-1">Sur GitHub</div>
-                    </div>
+                <div id="stats-container" class="grid grid-cols-2 gap-4">
+                    <span class="text-xs text-gray-400 dark:text-slate-500 col-span-2">Chargement...</span>
                 </div>
             </div>
         </div>
 
-        <!-- Repos -->
+        <!-- Repos (dynamic) -->
         <div class="reveal">
             <h3 class="text-lg font-semibold text-gray-700 dark:text-slate-300 mb-6 flex items-center">
                 <span class="w-10 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 mr-3 rounded-full"></span>
                 Repos publics
             </h3>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 stagger-children">
-                {repos.map((repo) => (
-                    <a href={`https://github.com/${username}/${repo.name}`} target="_blank"
-                        class="group p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300">
-                        <div class="flex items-start gap-3 mb-2">
-                            <svg class="w-5 h-5 text-gray-400 dark:text-slate-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
-                            <span class="font-semibold text-sm text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors truncate">{repo.name}</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-slate-400 mb-3 line-clamp-2">{repo.desc}</p>
-                        <div class="flex items-center gap-1.5">
-                            <span class="w-3 h-3 rounded-full flex-shrink-0" style={`background: ${repo.color}`}></span>
-                            <span class="text-xs text-gray-500 dark:text-slate-400">{repo.lang}</span>
-                        </div>
-                    </a>
-                ))}
+            <div id="repos-container" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <span class="text-xs text-gray-400 dark:text-slate-500">Chargement...</span>
             </div>
         </div>
 
@@ -234,17 +137,16 @@ const repos = [
     </div>
 </section>
 
-<!-- GitHub tooltip (must be outside section to avoid overflow clipping) -->
-<div id="contrib-tooltip" class="fixed z-[200] hidden pointer-events-none">
-    <div class="px-3 py-2 text-xs font-semibold text-white bg-[#24292f] rounded-md shadow-lg whitespace-nowrap">
-        <span id="contrib-tooltip-text"></span>
-    </div>
-    <div class="flex justify-center -mt-1">
-        <div class="w-2 h-2 bg-[#24292f] rotate-45"></div>
-    </div>
-</div>
-
 <script>
+    const USERNAME = 'MathieuAbbal';
+    const GH_API = 'https://api.github.com';
+    const LANG_COLORS: Record<string, string> = {
+        TypeScript: '#3178C6', JavaScript: '#f1e05a', HTML: '#e34c26',
+        CSS: '#563d7c', SCSS: '#c6538c', Astro: '#FF5D01', MDX: '#fcb32c',
+        Python: '#3572A5', Shell: '#89e051', Vue: '#41b883',
+    };
+
+    // --- Contribution graph ---
     const LIGHT_COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
     const DARK_COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
     const MONTHS = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'];
@@ -258,84 +160,63 @@ const repos = [
         const container = document.getElementById('year-selector');
         if (!container) return;
         container.innerHTML = '';
-
-        const years: string[] = [];
         for (let y = currentYear; y >= START_YEAR; y--) {
-            years.push(String(y));
-        }
-
-        years.forEach(year => {
+            const year = String(y);
             const btn = document.createElement('button');
             btn.textContent = year;
-            btn.dataset.year = year;
             const isActive = selectedYear === year || (selectedYear === 'last' && year === String(currentYear));
             btn.className = isActive
                 ? 'px-2 py-0.5 text-[10px] font-semibold rounded-md bg-indigo-600 text-white'
                 : 'px-2 py-0.5 text-[10px] font-medium rounded-md text-gray-500 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors';
-            btn.addEventListener('click', () => {
-                selectedYear = year;
-                loadContribGraph(year);
-                buildYearSelector();
-            });
+            btn.addEventListener('click', () => { selectedYear = year; loadContribGraph(year); buildYearSelector(); });
             container.appendChild(btn);
-        });
+        }
     }
 
     async function loadContribGraph(year: string = 'last') {
         const grid = document.getElementById('contrib-grid');
         const totalEl = document.getElementById('contrib-total');
-        const tooltip = document.getElementById('contrib-tooltip');
         if (!grid) return;
 
         try {
-            const res = await fetch(`https://github-contributions-api.jogruber.de/v4/MathieuAbbal?y=${year}`);
+            const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=${year}`);
             const data = await res.json();
             const contributions = data.contributions;
-
             const totalKey = year === 'last' ? 'lastYear' : year;
             const total = data.total[totalKey] || data.total.lastYear || 0;
             if (totalEl) totalEl.textContent = `${total} contributions${year === 'last' ? ' cette année' : ` en ${year}`}`;
 
-            // Group by weeks
             const weeks: { date: string; count: number; level: number }[][] = [];
             let currentWeek: { date: string; count: number; level: number }[] = [];
-
-            // Pad first week
             const firstDay = new Date(contributions[0].date).getDay();
-            for (let i = 0; i < firstDay; i++) {
-                currentWeek.push({ date: '', count: -1, level: -1 });
-            }
-
+            for (let i = 0; i < firstDay; i++) currentWeek.push({ date: '', count: -1, level: -1 });
             contributions.forEach((day: { date: string; count: number; level: number }) => {
                 currentWeek.push(day);
-                if (currentWeek.length === 7) {
-                    weeks.push(currentWeek);
-                    currentWeek = [];
-                }
+                if (currentWeek.length === 7) { weeks.push(currentWeek); currentWeek = []; }
             });
-            if (currentWeek.length > 0) {
-                weeks.push(currentWeek);
-            }
+            if (currentWeek.length > 0) weeks.push(currentWeek);
 
             const isDark = document.documentElement.classList.contains('dark');
             const colors = isDark ? DARK_COLORS : LIGHT_COLORS;
 
-            // Month labels (X axis)
             const monthsEl = document.getElementById('contrib-months');
             if (monthsEl) {
                 monthsEl.innerHTML = '';
                 let lastMonth = -1;
+                let lastLabelX = -50;
                 weeks.forEach((week, i) => {
-                    const firstDay = week.find(d => d.level !== -1);
-                    if (firstDay) {
-                        const m = new Date(firstDay.date).getMonth();
-                        if (m !== lastMonth) {
+                    const fd = week.find(d => d.level !== -1);
+                    if (fd) {
+                        const m = new Date(fd.date).getMonth();
+                        const x = i * 12;
+                        if (m !== lastMonth && x - lastLabelX >= 30) {
                             const span = document.createElement('span');
                             span.textContent = MONTHS[m];
                             span.style.position = 'absolute';
-                            span.style.left = `${i * 12}px`;
+                            span.style.left = `${x}px`;
                             monthsEl.appendChild(span);
                             lastMonth = m;
+                            lastLabelX = x;
                         }
                     }
                 });
@@ -355,25 +236,9 @@ const repos = [
                         cell.style.background = colors[day.level];
                         cell.dataset.date = day.date;
                         cell.dataset.count = String(day.count);
-
-                        cell.addEventListener('mouseenter', () => {
-                            if (!tooltip) return;
-                            const tooltipText = document.getElementById('contrib-tooltip-text');
-                            if (!tooltipText) return;
-                            const d = new Date(day.date);
-                            const label = day.count === 0
-                                ? 'Aucune contribution'
-                                : `${day.count} contribution${day.count > 1 ? 's' : ''}`;
-                            tooltipText.textContent = `${label} le ${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
-                            tooltip.classList.remove('hidden');
-                            const rect = cell.getBoundingClientRect();
-                            const tw = tooltip.offsetWidth;
-                            tooltip.style.left = `${rect.left + rect.width / 2 - tw / 2}px`;
-                            tooltip.style.top = `${rect.top - tooltip.offsetHeight - 4}px`;
-                        });
-                        cell.addEventListener('mouseleave', () => {
-                            tooltip?.classList.add('hidden');
-                        });
+                        const d = new Date(day.date);
+                        const label = day.count === 0 ? 'Aucune contribution' : `${day.count} contribution${day.count > 1 ? 's' : ''}`;
+                        cell.title = `${label} le ${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
                     }
                     col.appendChild(cell);
                 });
@@ -384,7 +249,6 @@ const repos = [
         }
     }
 
-    // Update colors on theme change
     function updateContribColors() {
         const isDark = document.documentElement.classList.contains('dark');
         const colors = isDark ? DARK_COLORS : LIGHT_COLORS;
@@ -400,6 +264,108 @@ const repos = [
         });
     }
 
+    // --- Dynamic stats, langs, repos, PRs ---
+    async function loadGitHubData() {
+        try {
+            const [userRes, reposRes, prsRes] = await Promise.all([
+                fetch(`${GH_API}/users/${USERNAME}`),
+                fetch(`${GH_API}/users/${USERNAME}/repos?per_page=100&sort=updated`),
+                fetch(`${GH_API}/search/issues?q=author:${USERNAME}+type:pr+is:merged&per_page=20&sort=updated`),
+            ]);
+
+            const user = await userRes.json();
+            const repos = await reposRes.json();
+            const prsData = await prsRes.json();
+
+            // --- Stats ---
+            const statsEl = document.getElementById('stats-container');
+            if (statsEl) {
+                const since = new Date(user.created_at).getFullYear();
+                const yearsOnGh = currentYear - since;
+                const statCard = (value: string, label: string) =>
+                    `<div class="p-4 rounded-xl bg-gray-50 dark:bg-slate-800/50 text-center">
+                        <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500" style="-webkit-background-clip:text">${value}</div>
+                        <div class="text-xs text-gray-500 dark:text-slate-400 mt-1">${label}</div>
+                    </div>`;
+                statsEl.innerHTML =
+                    statCard(String(user.public_repos), 'Repos publics') +
+                    statCard(`${yearsOnGh} ans`, 'Sur GitHub') +
+                    statCard(String(prsData.total_count || 0), 'PRs mergées') +
+                    statCard(String(user.following), 'Following');
+            }
+
+            // --- Languages ---
+            const langsEl = document.getElementById('langs-container');
+            if (langsEl && Array.isArray(repos)) {
+                const langCount: Record<string, number> = {};
+                repos.forEach((r: any) => {
+                    if (r.language) langCount[r.language] = (langCount[r.language] || 0) + 1;
+                });
+                const total = Object.values(langCount).reduce((a, b) => a + b, 0);
+                const sorted = Object.entries(langCount).sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+                langsEl.innerHTML = sorted.map(([lang, count]) => {
+                    const pct = Math.round((count / total) * 100);
+                    const color = LANG_COLORS[lang] || '#6c7086';
+                    return `<div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="font-medium text-gray-700 dark:text-slate-300">${lang}</span>
+                            <span class="text-gray-500 dark:text-slate-400">${pct}%</span>
+                        </div>
+                        <div class="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full rounded-full" style="width:${pct}%;background:${color}"></div>
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+
+            // --- Repos ---
+            const reposEl = document.getElementById('repos-container');
+            if (reposEl && Array.isArray(repos)) {
+                const filtered = repos
+                    .filter((r: any) => !r.fork && r.name !== USERNAME)
+                    .slice(0, 8);
+
+                reposEl.innerHTML = filtered.map((r: any) => {
+                    const color = LANG_COLORS[r.language] || '#6c7086';
+                    const desc = r.description || 'Pas de description';
+                    return `<a href="${r.html_url}" target="_blank"
+                        class="group p-4 bg-white dark:bg-[#0f172a]/50 backdrop-blur-sm border border-gray-200 dark:border-slate-800/50 rounded-2xl hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300">
+                        <div class="flex items-start gap-3 mb-2">
+                            <svg class="w-5 h-5 text-gray-400 dark:text-slate-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                            <span class="font-semibold text-sm text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors truncate">${r.name}</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-slate-400 mb-3 line-clamp-2">${desc}</p>
+                        <div class="flex items-center gap-1.5">
+                            ${r.language ? `<span class="w-3 h-3 rounded-full flex-shrink-0" style="background:${color}"></span><span class="text-xs text-gray-500 dark:text-slate-400">${r.language}</span>` : ''}
+                        </div>
+                    </a>`;
+                }).join('');
+            }
+
+            // --- PRs ---
+            const prsEl = document.getElementById('prs-container');
+            if (prsEl && prsData.items) {
+                const merged = prsData.items.filter((pr: any) => pr.pull_request?.merged_at);
+                if (merged.length === 0) {
+                    prsEl.innerHTML = '<span class="text-xs text-gray-400">Aucune PR mergée trouvée.</span>';
+                } else {
+                    prsEl.innerHTML = merged.map((pr: any) => {
+                        const repoName = pr.repository_url.replace(`${GH_API}/repos/`, '');
+                        return `<a href="${pr.html_url}" target="_blank"
+                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-full hover:border-green-400 dark:hover:border-green-400/40 hover:bg-green-100 dark:hover:bg-green-500/15 transition-all group">
+                            <svg class="w-3.5 h-3.5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                            <span class="text-xs font-medium text-green-700 dark:text-green-300">${repoName}</span>
+                            <span class="text-xs text-green-600/70 dark:text-green-400/60 hidden sm:inline">— ${pr.title.substring(0, 50)}${pr.title.length > 50 ? '...' : ''}</span>
+                        </a>`;
+                    }).join('');
+                }
+            }
+        } catch {
+            // Fallback silencieux
+        }
+    }
+
     const themeObs = new MutationObserver(updateContribColors);
     themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
@@ -411,6 +377,7 @@ const repos = [
                 obs.disconnect();
                 buildYearSelector();
                 loadContribGraph();
+                loadGitHubData();
             }
         }, { rootMargin: '200px' });
         obs.observe(ghSection);
