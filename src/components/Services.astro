@@ -1,0 +1,61 @@
+---
+const services = [
+    {
+        icon: 'sig',
+        title: 'Applications SIG sur-mesure',
+        desc: 'Conception et développement de plateformes cartographiques web interactives. Visualisation, édition et analyse de données géospatiales en temps réel.',
+        tags: ['MapLibre', 'Angular', 'GeoJSON'],
+    },
+    {
+        icon: 'chart',
+        title: 'Dashboards & Dataviz',
+        desc: 'Tableaux de bord décisionnels avec graphiques interactifs. KPIs temps réel, rapports exportables et indicateurs métier sur-mesure.',
+        tags: ['Chart.js', 'D3', 'Angular Material'],
+    },
+    {
+        icon: 'api',
+        title: 'APIs performantes',
+        desc: 'Architecture back-end robuste pour la gestion de données complexes. Endpoints REST, requêtes spatiales optimisées et authentification sécurisée.',
+        tags: ['LoopBack', 'MongoDB', 'Node.js'],
+    },
+];
+
+const icons: Record<string, string> = {
+    sig: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>`,
+    chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>`,
+    api: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12a2 2 0 100 4h14a2 2 0 100-4m-2-4h.01M17 16h.01"/></svg>`,
+};
+---
+
+<section id="services" class="py-12 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reveal">
+            <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-3">Expertise</p>
+            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+                Ce que je fais
+            </h2>
+            <p class="text-gray-500 dark:text-slate-400 max-w-2xl mx-auto">
+                Trois domaines où j'apporte de la valeur à vos projets web et géospatiaux.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 stagger-children">
+            {services.map((s) => (
+                <div class="group relative p-6 sm:p-8 rounded-lg bg-white dark:bg-[linear-gradient(135deg,#0a0e1a_0%,#111a2e_50%,#050910_100%)] border border-gray-200 dark:border-white/10 hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:-translate-y-1 glow-hover transition-all duration-300 overflow-hidden">
+                    <!-- Glow on hover -->
+                    <div class="absolute -top-20 -right-20 w-[200px] h-[200px] bg-[#4264fb]/0 group-hover:bg-[#4264fb]/15 dark:group-hover:bg-[#4264fb]/30 blur-[80px] rounded-full transition-colors duration-500"></div>
+                    <div class="relative">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-white mb-5 shadow-md shadow-indigo-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300" set:html={icons[s.icon]} />
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{s.title}</h3>
+                        <p class="text-sm text-gray-600 dark:text-slate-400 leading-relaxed mb-5">{s.desc}</p>
+                        <div class="flex flex-wrap gap-2">
+                            {s.tags.map((tag) => (
+                                <span class="px-2.5 py-1 border border-indigo-300/30 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 rounded-full text-[11px] font-medium">{tag}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

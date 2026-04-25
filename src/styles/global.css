@@ -1,18 +1,44 @@
 @import "tailwindcss";
 
-/* Tailwind v4 config */
+/* Tailwind v4 config - Mapbox palette */
 @theme {
-    --color-primary-50: #eff6ff;
-    --color-primary-100: #dbeafe;
-    --color-primary-200: #bfdbfe;
-    --color-primary-300: #93c5fd;
-    --color-primary-400: #60a5fa;
-    --color-primary-500: #3b82f6;
-    --color-primary-600: #2563eb;
-    --color-primary-700: #1d4ed8;
-    --color-primary-800: #1e40af;
-    --color-primary-900: #1e3a8a;
-    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    /* Mapbox primary blue */
+    --color-primary-50: #eef2ff;
+    --color-primary-100: #e0e7ff;
+    --color-primary-200: #c7d2fe;
+    --color-primary-300: #a5b4fc;
+    --color-primary-400: #7886fc;
+    --color-primary-500: #4264fb;
+    --color-primary-600: #314ccc;
+    --color-primary-700: #2a3ea3;
+    --color-primary-800: #1f2d6e;
+    --color-primary-900: #141d4a;
+
+    /* Override indigo to Mapbox blue */
+    --color-indigo-50: #eef2ff;
+    --color-indigo-100: #e0e7ff;
+    --color-indigo-200: #c7d2fe;
+    --color-indigo-300: #a5b4fc;
+    --color-indigo-400: #7886fc;
+    --color-indigo-500: #4264fb;
+    --color-indigo-600: #314ccc;
+    --color-indigo-700: #2a3ea3;
+    --color-indigo-800: #1f2d6e;
+    --color-indigo-900: #141d4a;
+
+    /* Override cyan to Mapbox cyan (secondary accent) */
+    --color-cyan-50: #e8fbff;
+    --color-cyan-100: #cff7fe;
+    --color-cyan-200: #9eedfe;
+    --color-cyan-300: #65d9fd;
+    --color-cyan-400: #38c2f4;
+    --color-cyan-500: #1ea5dc;
+    --color-cyan-600: #1684b8;
+    --color-cyan-700: #166894;
+    --color-cyan-800: #165376;
+    --color-cyan-900: #154564;
+
+    --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 /* Dark mode via class */

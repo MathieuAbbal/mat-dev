@@ -4,6 +4,7 @@ export interface Project {
   tags: string[];
   icon: string;
   gradient: string;
+  link?: string;
 }
 
 export interface Skill {
@@ -43,6 +44,15 @@ export const PROJECTS: Project[] = [
     tags: ["Angular", "MapLibre", "LoopBack", "MongoDB"],
     icon: "geocrm",
     gradient: "from-amber-500 to-orange-600",
+  },
+  {
+    title: "HubEau",
+    description:
+      "Application cartographique interactive pour explorer les données ouvertes sur l'eau en France via les API Hub'Eau. Projet personnel open source.",
+    tags: ["TypeScript", "MapLibre", "Hub'Eau API"],
+    icon: "sig",
+    gradient: "from-cyan-500 to-blue-600",
+    link: "https://mathieuabbal.github.io/HubEau/",
   },
   {
     title: "Superviseur NanoGIS",
