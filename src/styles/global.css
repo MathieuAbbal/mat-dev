@@ -157,6 +157,7 @@ html {
     100% { transform: scale(1.4); opacity: 0; }
 }
 
+
 .pulse-ring::before {
     content: '';
     position: absolute;
