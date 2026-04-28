@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout>
+    <Header />
+    <main class="min-h-[calc(100vh-200px)] flex items-center justify-center py-20 px-4">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <!-- Big 404 with gradient -->
+            <div class="relative inline-block mb-8">
+                <h1 class="text-[120px] sm:text-[180px] lg:text-[220px] font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 via-cyan-500 to-indigo-600 dark:from-[#7886fc] dark:via-[#65d9fd] dark:to-[#7886fc] animated-gradient">
+                    404
+                </h1>
+                <!-- Floating map pin -->
+                <div class="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 float">
+                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-3">Page introuvable</p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+                Cette destination n'est pas sur la carte
+            </h2>
+            <p class="text-gray-500 dark:text-slate-400 mb-10 max-w-md mx-auto">
+                Il semble que vous vous soyez aventuré hors des sentiers battus. Pas de panique, voici la route du retour.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href={base} class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 dark:from-[#7886fc] dark:to-[#65d9fd] text-white font-semibold shadow-md shadow-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/50 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    Retour à l'accueil
+                </a>
+                <a href={`${base}#contact`} class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white dark:bg-slate-900/50 border border-gray-300 dark:border-slate-700 text-gray-700 dark:text-slate-200 font-semibold hover:border-indigo-500 dark:hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Signaler le problème
+                </a>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>

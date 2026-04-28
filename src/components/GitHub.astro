@@ -293,19 +293,49 @@ const username = 'MathieuAbbal';
                 const total = Object.values(langCount).reduce((a, b) => a + b, 0);
                 const sorted = Object.entries(langCount).sort((a, b) => b[1] - a[1]).slice(0, 6);
 
-                langsEl.innerHTML = sorted.map(([lang, count]) => {
+                langsEl.innerHTML = sorted.map(([lang, count], i) => {
                     const pct = Math.round((count / total) * 100);
                     const color = LANG_COLORS[lang] || '#6c7086';
                     return `<div>
                         <div class="flex justify-between text-sm mb-1">
                             <span class="font-medium text-gray-700 dark:text-slate-300">${lang}</span>
-                            <span class="text-gray-500 dark:text-slate-400">${pct}%</span>
+                            <span class="text-gray-500 dark:text-slate-400 lang-percent" data-target="${pct}">0%</span>
                         </div>
                         <div class="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full rounded-full" style="width:${pct}%;background:${color}"></div>
+                            <div class="lang-bar h-full rounded-full" data-target="${pct}" style="width:0%;background:${color};transition:width 1.2s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s"></div>
                         </div>
                     </div>`;
                 }).join('');
+
+                // Animate when visible
+                const animateBars = () => {
+                    document.querySelectorAll<HTMLElement>('.lang-bar').forEach(bar => {
+                        bar.style.width = `${bar.dataset.target}%`;
+                    });
+                    document.querySelectorAll<HTMLElement>('.lang-percent').forEach((el, i) => {
+                        const target = parseInt(el.dataset.target || '0');
+                        const duration = 1200;
+                        const delay = i * 100;
+                        const start = performance.now() + delay;
+                        const animate = (now: number) => {
+                            if (now < start) { requestAnimationFrame(animate); return; }
+                            const t = Math.min((now - start) / duration, 1);
+                            const eased = 1 - Math.pow(1 - t, 3);
+                            el.textContent = `${Math.round(target * eased)}%`;
+                            if (t < 1) requestAnimationFrame(animate);
+                        };
+                        requestAnimationFrame(animate);
+                    });
+                };
+
+                if (langsEl) {
+                    const langObs = new IntersectionObserver((entries) => {
+                        if (!entries[0].isIntersecting) return;
+                        langObs.disconnect();
+                        animateBars();
+                    }, { threshold: 0.3 });
+                    langObs.observe(langsEl);
+                }
             }
 
             // --- Repos ---
