@@ -2,5 +2,12 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://mathieuabbal.github.io/mat-dev/sitemap.xml
+# Disallow common bot/agent fetches that bring no value
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemaps
+Sitemap: https://mathieuabbal.github.io/mat-dev/sitemap-index.xml
+Sitemap: https://mathieuabbal.github.io/mat-dev/sitemap-0.xml
