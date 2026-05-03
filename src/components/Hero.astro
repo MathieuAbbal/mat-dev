@@ -211,6 +211,8 @@ const base = import.meta.env.BASE_URL;
         <div class="relative flex-1 rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700/30 shadow-2xl">
             <div id="modal-map" class="w-full h-full"></div>
             <!-- Top bar -->
+            <!-- Geocoder centered at top -->
+            <div id="modal-geocoder" class="absolute top-4 left-1/2 -translate-x-1/2 z-10 w-[280px] sm:w-[400px] [&_.maplibregl-ctrl]:!shadow-md"></div>
             <div class="absolute top-4 right-4 flex items-center gap-2 z-10">
                 <!-- Style selector -->
                 <div class="relative" id="style-selector">
@@ -451,6 +453,24 @@ const base = import.meta.env.BASE_URL;
         });
     }
 
+    // Lazy-load MapTiler Geocoder
+    const GC_CSS = 'https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.4/style.css';
+    const GC_JS = 'https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.4/maplibregl.umd.js';
+    let gcLoaded = false;
+    function loadGeocoder(): Promise<void> {
+        if (gcLoaded) return Promise.resolve();
+        return new Promise((resolve) => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = GC_CSS;
+            document.head.appendChild(link);
+            const script = document.createElement('script');
+            script.src = GC_JS;
+            script.onload = () => { gcLoaded = true; resolve(); };
+            document.head.appendChild(script);
+        });
+    }
+
     function initHeroMap() {
         const mapContainer = document.getElementById('hero-map');
         if (!mapContainer || !(window as any).maplibregl || heroMap) return;
@@ -519,9 +539,39 @@ const base = import.meta.env.BASE_URL;
 
             modalMap.addControl(new (window as any).maplibregl.NavigationControl({ visualizePitch: true }), 'top-left');
 
-            // Persistent marker
+            // Geolocate control
+            const geolocate = new (window as any).maplibregl.GeolocateControl({
+                positionOptions: { enableHighAccuracy: true },
+                trackUserLocation: true,
+                showUserHeading: true,
+            });
+            modalMap.addControl(geolocate, 'top-left');
+
+            // Geocoder (search bar) - moved to top-right toolbar
+            loadGeocoder().then(() => {
+                const w = window as any;
+                const ns = w.maplibreglMaptilerGeocoder || w.maptilerGeocodingControl;
+                if (!ns) return;
+                const gc = new ns.GeocodingControl({
+                    apiKey: 'gFo9NAK14hwpQNC0vjKE',
+                    language: 'fr',
+                    placeholder: 'Rechercher un lieu...',
+                    flyTo: true,
+                });
+                modalMap.addControl(gc, 'top-right');
+                // Move into our custom toolbar container
+                setTimeout(() => {
+                    const target = document.getElementById('modal-geocoder');
+                    const ctrl = document.querySelector('.maplibregl-ctrl-top-right .maplibregl-ctrl input')?.closest('.maplibregl-ctrl') as HTMLElement;
+                    if (target && ctrl) {
+                        target.appendChild(ctrl);
+                    }
+                }, 100);
+            });
+
+            // Persistent marker (Perpignan)
             const modalMarkerEl = document.createElement('div');
-            modalMarkerEl.innerHTML = `<div style="width:20px;height:20px;background:#6366f1;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(99,102,241,0.5)"></div>`;
+            modalMarkerEl.innerHTML = `<div style="width:20px;height:20px;background:#4264fb;border-radius:50%;border:3px solid white;box-shadow:0 0 12px rgba(66,100,251,0.5)"></div>`;
             const modalMarker = new (window as any).maplibregl.Marker({ element: modalMarkerEl })
                 .setLngLat([2.89, 42.7]);
 
@@ -529,18 +579,6 @@ const base = import.meta.env.BASE_URL;
                 modalMapReady = true;
                 modalMarker.addTo(modalMap);
             });
-
-            // Watch theme changes
-            const obs = new MutationObserver(() => {
-                if (!modalMapReady || !mapModal || mapModal.classList.contains('hidden')) return;
-                modalMapReady = false;
-                modalMap.setStyle(getMapStyle());
-                modalMap.once('style.load', () => {
-                    modalMapReady = true;
-                    if (is3D) addTerrain();
-                });
-            });
-            obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
         } else {
             modalMap.resize();
         }
