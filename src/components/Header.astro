@@ -149,16 +149,23 @@
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
-            if (href) {
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    navbarCollapse?.classList.add('hidden');
-                    hamburgerIcon?.classList.remove('hidden');
-                    closeIcon?.classList.add('hidden');
-                }
+            if (!href || href === '#') {
+                // "#" or empty: scroll to top
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                navbarCollapse?.classList.add('hidden');
+                hamburgerIcon?.classList.remove('hidden');
+                closeIcon?.classList.add('hidden');
+                return;
+            }
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                navbarCollapse?.classList.add('hidden');
+                hamburgerIcon?.classList.remove('hidden');
+                closeIcon?.classList.add('hidden');
             }
         });
     });

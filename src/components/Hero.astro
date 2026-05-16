@@ -426,17 +426,41 @@ const base = import.meta.env.BASE_URL;
         refreshMapStyles();
     });
 
+    let heroMapBusy = false;
+    let modalMapBusy = false;
+
+    function safeSetStyle(map: any, url: string, busyFlag: 'hero' | 'modal', onLoaded?: () => void) {
+        if (!map) return;
+        const setBusy = (v: boolean) => { if (busyFlag === 'hero') heroMapBusy = v; else modalMapBusy = v; };
+        const isBusy = busyFlag === 'hero' ? heroMapBusy : modalMapBusy;
+        if (isBusy) return;
+        setBusy(true);
+        let released = false;
+        const release = () => {
+            if (released) return;
+            released = true;
+            setBusy(false);
+            onLoaded?.();
+        };
+        try {
+            map.setStyle(url);
+            map.once('style.load', release);
+            // Fallback in case style.load never fires
+            setTimeout(release, 3000);
+        } catch {
+            release();
+        }
+    }
+
     function refreshMapStyles() {
-        if (heroMap) {
-            heroMap.setStyle(mapDarkMode
-                ? 'https://api.maptiler.com/maps/dataviz-dark/style.json?key=gFo9NAK14hwpQNC0vjKE'
-                : 'https://api.maptiler.com/maps/dataviz-light/style.json?key=gFo9NAK14hwpQNC0vjKE');
-        }
+        safeSetStyle(heroMap, mapDarkMode
+            ? 'https://api.maptiler.com/maps/dataviz-dark/style.json?key=gFo9NAK14hwpQNC0vjKE'
+            : 'https://api.maptiler.com/maps/dataviz-light/style.json?key=gFo9NAK14hwpQNC0vjKE', 'hero');
         if (modalMap) {
-            modalMap.setStyle(getMapStyle());
-            modalMap.once('style.load', () => { if (is3D) addTerrain(); });
+            safeSetStyle(modalMap, getMapStyle(), 'modal', () => {
+                if (is3D) { addTerrain(); add3DBuildings(); }
+            });
         }
-        // Update toggle icon
         const sunIcon = document.querySelector('.map-theme-sun');
         const moonIcon = document.querySelector('.map-theme-moon');
         sunIcon?.classList.toggle('hidden', !mapDarkMode);
@@ -619,15 +643,47 @@ const base = import.meta.env.BASE_URL;
         modalMap.setTerrain(null);
     }
 
+    function add3DBuildings() {
+        if (!modalMap || modalMap.getLayer('3d-buildings')) return;
+        const style = modalMap.getStyle();
+        const layers = style.layers || [];
+        // Find the source name from any existing building layer in the current style
+        const buildingLayer = layers.find((l: any) => l['source-layer'] === 'building');
+        if (!buildingLayer) return;
+        const sourceName = buildingLayer.source;
+        // Find a label layer to insert below it
+        const labelLayer = layers.find((l: any) => l.type === 'symbol' && l.layout?.['text-field']);
+        modalMap.addLayer({
+            id: '3d-buildings',
+            source: sourceName,
+            'source-layer': 'building',
+            type: 'fill-extrusion',
+            minzoom: 14,
+            paint: {
+                'fill-extrusion-color': mapDarkMode ? '#3a4258' : '#d4d8e0',
+                'fill-extrusion-height': ['coalesce', ['get', 'render_height'], ['get', 'height'], 10],
+                'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
+                'fill-extrusion-opacity': 0.85,
+            },
+        }, labelLayer?.id);
+    }
+
+    function remove3DBuildings() {
+        if (!modalMap || !modalMap.getLayer('3d-buildings')) return;
+        modalMap.removeLayer('3d-buildings');
+    }
+
     toggle3d?.addEventListener('click', () => {
         if (!modalMap) return;
         is3D = !is3D;
         if (is3D) {
             addTerrain();
+            add3DBuildings();
             modalMap.easeTo({ pitch: 60, duration: 1000 });
             toggle3d.classList.add('ring-2', 'ring-indigo-500/50', 'border-indigo-400', 'dark:border-indigo-500');
         } else {
             removeTerrain();
+            remove3DBuildings();
             modalMap.easeTo({ pitch: 0, duration: 1000 });
             toggle3d.classList.remove('ring-2', 'ring-indigo-500/50', 'border-indigo-400', 'dark:border-indigo-500');
         }
@@ -826,16 +882,11 @@ const base = import.meta.env.BASE_URL;
             const style = mapStyles[styleKey];
             if (modalMap && style) {
                 currentStyleKey = styleKey;
-                try {
-                    modalMap.setStyle(style.url());
-                    modalMap.once('style.load', () => {
-                        modalMapReady = true;
-                        if (is3D) addTerrain();
-                        if (measureMode && measurePoints.length > 0) updateMeasureLayer();
-                    });
-                } catch (err) {
-                    console.error('Style change failed:', err);
-                }
+                safeSetStyle(modalMap, style.url(), 'modal', () => {
+                    modalMapReady = true;
+                    if (is3D) { addTerrain(); add3DBuildings(); }
+                    if (measureMode && measurePoints.length > 0) updateMeasureLayer();
+                });
                 if (currentStyleName) currentStyleName.textContent = style.name;
             }
             styleDropdown?.classList.add('hidden');
