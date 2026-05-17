@@ -453,13 +453,23 @@ const base = import.meta.env.BASE_URL;
     }
 
     function refreshMapStyles() {
-        safeSetStyle(heroMap, mapDarkMode
-            ? 'https://api.maptiler.com/maps/dataviz-dark/style.json?key=gFo9NAK14hwpQNC0vjKE'
-            : 'https://api.maptiler.com/maps/dataviz-light/style.json?key=gFo9NAK14hwpQNC0vjKE', 'hero');
+        // Force reset busy flags for explicit user actions
+        heroMapBusy = false;
+        modalMapBusy = false;
+        if (heroMap) {
+            try {
+                heroMap.setStyle(mapDarkMode
+                    ? 'https://api.maptiler.com/maps/dataviz-dark/style.json?key=gFo9NAK14hwpQNC0vjKE'
+                    : 'https://api.maptiler.com/maps/dataviz-light/style.json?key=gFo9NAK14hwpQNC0vjKE');
+            } catch (err) { console.warn('Hero setStyle failed:', err); }
+        }
         if (modalMap) {
-            safeSetStyle(modalMap, getMapStyle(), 'modal', () => {
-                if (is3D) { addTerrain(); add3DBuildings(); }
-            });
+            try {
+                modalMap.setStyle(getMapStyle());
+                modalMap.once('style.load', () => {
+                    if (is3D) { addTerrain(); add3DBuildings(); }
+                });
+            } catch (err) { console.warn('Modal setStyle failed:', err); }
         }
         const sunIcon = document.querySelector('.map-theme-sun');
         const moonIcon = document.querySelector('.map-theme-moon');
