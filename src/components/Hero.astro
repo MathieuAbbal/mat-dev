@@ -295,6 +295,10 @@ const base = import.meta.env.BASE_URL;
                     <svg class="map-theme-sun w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                     <svg class="map-theme-moon w-4 h-4 text-indigo-500 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                 </button>
+                <!-- Reset View -->
+                <button id="map-reset-view" class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 transition-colors" aria-label="Recentrer la carte" title="Recentrer la vue">
+                    <svg class="w-4 h-4 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                </button>
                 <!-- Fullscreen Toggle -->
                 <button id="map-fullscreen-toggle" class="hidden md:flex items-center justify-center w-10 h-10 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 transition-colors" aria-label="Plein écran" title="Plein écran">
                     <svg class="fs-expand w-4 h-4 text-gray-600 dark:text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/></svg>
@@ -315,6 +319,10 @@ const base = import.meta.env.BASE_URL;
                 <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-slate-500">Distance</div>
                 <div class="text-base font-bold text-indigo-600 dark:text-indigo-400" id="measure-result">—</div>
                 <div class="text-[10px] text-gray-400 dark:text-slate-500" id="measure-hint">Cliquez pour ajouter des points</div>
+            </div>
+            <!-- Minimap overview -->
+            <div class="hidden md:block absolute bottom-12 right-4 z-10 w-40 h-32 rounded-lg overflow-hidden border-2 border-white dark:border-slate-700 shadow-lg" id="minimap-wrapper">
+                <div id="minimap" class="w-full h-full"></div>
             </div>
         </div>
     </div>
@@ -471,6 +479,9 @@ const base = import.meta.env.BASE_URL;
                 });
             } catch (err) { console.warn('Modal setStyle failed:', err); }
         }
+        if (minimap) {
+            try { minimap.setStyle(getMapStyle()); } catch (err) { console.warn('Minimap setStyle failed:', err); }
+        }
         const sunIcon = document.querySelector('.map-theme-sun');
         const moonIcon = document.querySelector('.map-theme-moon');
         sunIcon?.classList.toggle('hidden', !mapDarkMode);
@@ -617,10 +628,74 @@ const base = import.meta.env.BASE_URL;
             modalMap.on('load', () => {
                 modalMapReady = true;
                 modalMarker.addTo(modalMap);
+                initMinimap();
             });
         } else {
             modalMap.resize();
+            if (minimap) minimap.resize();
         }
+    }
+
+    let minimap: any = null;
+    function initMinimap() {
+        if (minimap || !(window as any).maplibregl) return;
+        const container = document.getElementById('minimap');
+        if (!container) return;
+
+        minimap = new (window as any).maplibregl.Map({
+            container,
+            style: getMapStyle(),
+            center: modalMap.getCenter(),
+            zoom: Math.max(modalMap.getZoom() - 4, 0),
+            interactive: false,
+            attributionControl: false,
+        });
+
+        const updateBboxLayer = () => {
+            if (!minimap.isStyleLoaded()) return;
+            const bounds = modalMap.getBounds();
+            const sw = bounds.getSouthWest();
+            const ne = bounds.getNorthEast();
+            const bboxData = {
+                type: 'Feature',
+                geometry: {
+                    type: 'Polygon',
+                    coordinates: [[
+                        [sw.lng, sw.lat],
+                        [ne.lng, sw.lat],
+                        [ne.lng, ne.lat],
+                        [sw.lng, ne.lat],
+                        [sw.lng, sw.lat],
+                    ]],
+                },
+                properties: {},
+            };
+            const src = minimap.getSource('bbox');
+            if (src) {
+                src.setData(bboxData);
+            } else {
+                minimap.addSource('bbox', { type: 'geojson', data: bboxData });
+                minimap.addLayer({
+                    id: 'bbox-fill',
+                    type: 'fill',
+                    source: 'bbox',
+                    paint: { 'fill-color': '#4264fb', 'fill-opacity': 0.15 },
+                });
+                minimap.addLayer({
+                    id: 'bbox-line',
+                    type: 'line',
+                    source: 'bbox',
+                    paint: { 'line-color': '#4264fb', 'line-width': 2 },
+                });
+            }
+        };
+
+        minimap.on('load', updateBboxLayer);
+        modalMap.on('move', () => {
+            minimap.setCenter(modalMap.getCenter());
+            minimap.setZoom(Math.max(modalMap.getZoom() - 4, 0));
+            updateBboxLayer();
+        });
     }
 
     function closeMapModal() {
@@ -716,6 +791,26 @@ const base = import.meta.env.BASE_URL;
         fsExpand?.classList.toggle('hidden', isFs);
         fsCompress?.classList.toggle('hidden', !isFs);
         modalMap?.resize?.();
+    });
+
+    // Reset view button
+    const resetBtn = document.getElementById('map-reset-view');
+    resetBtn?.addEventListener('click', () => {
+        if (!modalMap) return;
+        modalMap.easeTo({
+            center: [2.89, 42.7],
+            zoom: 10,
+            pitch: 0,
+            bearing: 0,
+            duration: 1500,
+        });
+        // Also disable 3D mode if it's active
+        if (is3D) {
+            is3D = false;
+            removeTerrain();
+            remove3DBuildings();
+            toggle3d?.classList.remove('ring-2', 'ring-indigo-500/50', 'border-indigo-400', 'dark:border-indigo-500');
+        }
     });
 
     // Map theme toggle
